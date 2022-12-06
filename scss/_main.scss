@@ -1,0 +1,41 @@
+.container {
+	max-width: 1200px;
+	padding: 0 15px;
+	box-sizing: border-box;
+	margin: 0 auto;
+	overflow: hidden;
+	.users {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		&__item {
+			max-width: 230px;
+			height: 370px;
+			padding: 0 15px;
+			margin: 20px 0;
+		}
+		&__img{
+			width: 230px;
+			height: 230px;
+		}
+		&__main{
+			display: flex;
+			flex-direction: column;
+		}
+		&__name{
+			font-size: 22px;
+			font-weight: 700;
+			text-align: center;
+			margin: 12px 0;
+		}
+		&__city{
+			text-align: center;
+			font-size: 18px;
+			font-weight: 600;
+			margin-bottom: 40px;
+		}
+		&__website{
+			text-align: center;
+		}
+	}
+}

@@ -5,10 +5,16 @@ body {
 }
 
 h1,
-h3 {
+h3,
+h4,
+p,
+a {
   font-family: "Raleway", sans-serif;
   font-weight: normal;
   line-height: 100%;
+  font-size: 16px;
+  color: rgb(60, 60, 60);
+  text-decoration: none;
 }
 
 .wrapper {
@@ -44,4 +50,46 @@ h3 {
 .footer__title {
   font-size: 16px;
   color: azure;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.container .users {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.container .users__item {
+  max-width: 230px;
+  height: 370px;
+  padding: 0 15px;
+  margin: 20px 0;
+}
+.container .users__img {
+  width: 230px;
+  height: 230px;
+}
+.container .users__main {
+  display: flex;
+  flex-direction: column;
+}
+.container .users__name {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 12px 0;
+}
+.container .users__city {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+.container .users__website {
+  text-align: center;
 }

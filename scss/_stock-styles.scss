@@ -4,10 +4,16 @@ body {
 }
 
 h1,
-h3 {
+h3,
+h4,
+p,
+a {
 	font-family: "Raleway", sans-serif;
 	font-weight: normal;
 	line-height: 100%;
+	font-size: 16px;
+	color: rgb(60, 60, 60);
+	text-decoration: none;
 }
 
 .wrapper {
