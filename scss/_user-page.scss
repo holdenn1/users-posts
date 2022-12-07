@@ -1,0 +1,25 @@
+.user {
+	margin: 40px 0 0 40px;
+	width: 480px;
+	display: flex;
+	.avatar {
+		max-width: 230px;
+		max-height: 230px;
+	}
+	&__description {
+		height: 230px;
+		margin: 30px auto;
+	}
+	&__name {
+		font-size: 22px;
+		font-weight: 700;
+	}
+	&__city {
+		font-size: 18px;
+		font-weight: 600;
+		margin: 12px 0 20px;
+	}
+	&__website {
+		font-weight: 500;
+	}
+}

@@ -94,3 +94,29 @@ a {
 .container .users__website {
   text-align: center;
 }
+
+.user {
+  margin: 40px 0 0 40px;
+  width: 480px;
+  display: flex;
+}
+.user .avatar {
+  max-width: 230px;
+  max-height: 230px;
+}
+.user__description {
+  height: 230px;
+  margin: 30px auto;
+}
+.user__name {
+  font-size: 22px;
+  font-weight: 700;
+}
+.user__city {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 12px 0 20px;
+}
+.user__website {
+  font-weight: 500;
+}
