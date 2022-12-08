@@ -1,12 +1,13 @@
 'use strict';
 
-const userPageHeader = document.querySelector('.peage__header');
 window.addEventListener('load', function () {
+	const userPageHeader = document.querySelector('.peage__header');
+	const posts = document.querySelector('.posts');
 	const pageUrl = document.location.search;
-	let searchParams = new URLSearchParams(pageUrl);
-	let user = parseInt(searchParams.get('item'));
-
-	let usersUrl = `https://jsonplaceholder.typicode.com/users/${user}`;
+	const searchParams = new URLSearchParams(pageUrl);
+	const user = parseInt(searchParams.get('item'));
+	const usersUrl = `https://jsonplaceholder.typicode.com/users/${user}`;
+	const postsUrl = 'https://jsonplaceholder.typicode.com/posts';
 	fetch(usersUrl)
 		.then((response) => response.json())
 		.then((data) => {
@@ -25,5 +26,20 @@ window.addEventListener('load', function () {
 						<div class="pege__main">
 				`,
 			);
+		});
+	fetch(postsUrl)
+		.then((response) => response.json())
+		.then((postData) => {
+			postData.forEach((element) => {
+				posts.insertAdjacentHTML(
+					'beforeend',
+					`<a class="posts__link" href="#">
+						<div id='${element.id}' class="posts__item">
+							<img class="posts__photo" src="https://klike.net/uploads/posts/2018-12/1544870354_1.jpg" alt="">
+							<p class="posts__description">${element.title}</p>
+						</div>
+					</a>`,
+				);
+			});
 		});
 });

@@ -1,25 +1,50 @@
-.user {
-	margin: 40px 0 0 40px;
-	width: 480px;
-	display: flex;
-	.avatar {
-		max-width: 230px;
-		max-height: 230px;
+.page {
+	width: 100%;
+	.user {
+		margin: 40px 0 40px 40px;
+		width: 480px;
+		display: flex;
+		.avatar {
+			max-width: 230px;
+			max-height: 230px;
+		}
+		&__description {
+			height: 230px;
+			margin-top: 30px;
+			margin-left: 40px;
+		}
+		&__name {
+			font-size: 22px;
+			font-weight: 700;
+		}
+		&__city {
+			font-size: 18px;
+			font-weight: 600;
+			margin: 12px 0 20px;
+		}
+		&__website {
+			font-weight: 500;
+		}
 	}
-	&__description {
-		height: 230px;
-		margin: 30px auto;
-	}
-	&__name {
-		font-size: 22px;
-		font-weight: 700;
-	}
-	&__city {
-		font-size: 18px;
-		font-weight: 600;
-		margin: 12px 0 20px;
-	}
-	&__website {
-		font-weight: 500;
+	.posts {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		&__link {
+			margin: 12px 0;
+			padding: 0 12px;
+		}
+		&__item {
+			width: 320px;
+		}
+		&__photo {
+			width: 320px;
+			margin-bottom: 18px;
+		}
+		&__description {
+			font-size: 18px;
+			line-height: 120%;
+		}
 	}
 }
