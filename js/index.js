@@ -1,11 +1,5 @@
 'use strict';
-
-const userItem = document.querySelector('.users__item');
 const users = document.querySelector('.users');
-const userName = document.querySelector('.users__name');
-const userCity = document.querySelector('.users__city');
-const userWebsite = document.querySelector('.users__website');
-
 const url = 'https://jsonplaceholder.typicode.com/users';
 
 fetch(url)
@@ -15,7 +9,7 @@ fetch(url)
 			users.insertAdjacentHTML(
 				'beforeend',
 				`<a class="users__link"
-				href="./user-page.html?${element.id}">
+				href="./user-page.html?item=${element.id}">
 				<div id=${element.id} class="users__item">
 							<div class="users__header">
 								<img
