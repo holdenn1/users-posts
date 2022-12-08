@@ -65,19 +65,25 @@ a {
   flex-wrap: wrap;
   width: 100%;
 }
+.container .users__link {
+  margin: 20px 0;
+  padding: 0 10px;
+}
 .container .users__item {
   max-width: 230px;
   height: 370px;
-  padding: 0 15px;
-  margin: 20px 0;
+  outline: 1px solid black;
+  overflow: hidden;
 }
 .container .users__img {
   width: 230px;
   height: 230px;
 }
 .container .users__main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  height: 120px;
 }
 .container .users__name {
   font-size: 22px;
@@ -89,7 +95,6 @@ a {
   text-align: center;
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 40px;
 }
 .container .users__website {
   text-align: center;

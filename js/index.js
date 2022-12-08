@@ -10,12 +10,13 @@ const url = 'https://jsonplaceholder.typicode.com/users';
 
 fetch(url)
 	.then((respose) => respose.json())
-	.then((data) => {
-		for (let key in data) {
+	.then(data => {
+		data.forEach(element => {
 			users.insertAdjacentHTML(
 				'beforeend',
-				`<a href="./user-page.html">
-						<div id=${data[key]['id']} class="users__item">
+				`<a class="users__link"
+				href="./user-page.html?${element.id}">
+				<div id=${element.id} class="users__item">
 							<div class="users__header">
 								<img
 									class="users__img"
@@ -24,13 +25,13 @@ fetch(url)
 								/>
 							</div>
 							<div class="users__main">
-								<h4 class="users__name">${data[key]['name']}</h4>
-								<p class="users__city">City: ${data[key]['address']['city']}</p>
-								<a class="users__website" href="#">${data[key]['website']}</a>
+								<h4 class="users__name">${element.name}</h4>
+								<p class="users__city">City: ${element.address.city}</p>
+								<p class="users__website">${element.website}</p>
 							</div>
-						</div>
-					</a>`,
+							</div>
+							</a>`
 			);
-		}
+		});
 	})
-	.then((data) => console.log(data));
+
