@@ -9,7 +9,7 @@ fetch(url)
 			users.insertAdjacentHTML(
 				'beforeend',
 				`<a class="users__link"
-				href="./user-page.html?item=${element.id}">
+				href="./user-page.html?item=${element.id}/">
 				<div id=${element.id} class="users__item">
 							<div class="users__header">
 								<img

@@ -149,4 +149,24 @@ a {
 .page .posts__description {
   font-size: 18px;
   line-height: 120%;
+  text-transform: capitalize;
+}
+
+.comment-header {
+  width: 100%;
+}
+.comment-header .post {
+  max-height: 200px;
+  margin: 40px;
+}
+.comment-header .post__item {
+  display: flex;
+}
+.comment-header .post__photo {
+  max-width: 320px;
+}
+.comment-header .post__description {
+  text-transform: capitalize;
+  line-height: 120%;
+  margin: 0 20px;
 }

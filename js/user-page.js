@@ -1,6 +1,6 @@
 'use strict';
 
-window.addEventListener('load', function () {
+window.addEventListener('load', () => {
 	const userPageHeader = document.querySelector('.peage__header');
 	const posts = document.querySelector('.posts');
 	const pageUrl = document.location.search;
@@ -33,7 +33,9 @@ window.addEventListener('load', function () {
 			postData.forEach((element) => {
 				posts.insertAdjacentHTML(
 					'beforeend',
-					`<a class="posts__link" href="#">
+					`<a 
+					class="posts__link"
+					href="./comments.html?post=${element.id}">
 						<div id='${element.id}' class="posts__item">
 							<img class="posts__photo" src="https://klike.net/uploads/posts/2018-12/1544870354_1.jpg" alt="">
 							<p class="posts__description">${element.title}</p>

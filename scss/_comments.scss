@@ -1,0 +1,18 @@
+.comment-header {
+	width: 100%;
+	.post {
+		max-height: 200px;
+		margin: 40px;
+		&__item {
+			display: flex;
+		}
+		&__photo {
+			max-width: 320px;
+		}
+		&__description{
+			text-transform: capitalize;
+			line-height: 120%;
+			margin: 0 20px;
+		}
+	}
+}
