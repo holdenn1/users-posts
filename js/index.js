@@ -1,6 +1,6 @@
 'use strict';
 const users = document.querySelector('.users');
-const url = 'https://jsonplaceholder.typicode.com/users';
+const url = 'http://localhost:3000/users';
 
 fetch(url)
 	.then((respose) => respose.json())
@@ -14,7 +14,7 @@ fetch(url)
 							<div class="users__header">
 								<img
 									class="users__img"
-									src="https://ashallendesign.ams3.cdn.digitaloceanspaces.com/rMbsGOyK6i1KjNkbXff8qLohzM1nWQA8HNGwHF0J.png"
+									src="${element.photo}"
 									alt=""
 								/>
 							</div>
