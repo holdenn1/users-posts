@@ -1,13 +1,13 @@
 'use strict';
 
 window.addEventListener('load', () => {
-	const userPageHeader = document.querySelector('.peage__header');
-	const posts = document.querySelector('.posts');
 	const pageUrl = document.location.search;
 	const searchParams = new URLSearchParams(pageUrl);
 	const user = parseInt(searchParams.get('id'));
 	const usersUrl = `http://localhost:3000/users/${user}`;
 	const postsUrl = `http://localhost:3000/posts?userId=${user}`;
+	const userPageHeader = document.querySelector('.peage__header');
+	const posts = document.querySelector('.posts');
 
 	fetch(usersUrl)
 		.then((response) => response.json())
