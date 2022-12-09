@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
 	const posts = document.querySelector('.posts');
 	const pageUrl = document.location.search;
 	const searchParams = new URLSearchParams(pageUrl);
-	const user = parseInt(searchParams.get('item'));
+	const user = parseInt(searchParams.get('id'));
 	const usersUrl = `http://localhost:3000/users/${user}`;
 	const postsUrl = `http://localhost:3000/posts?userId=${user}`;
 
@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
 					'beforeend',
 					`<a 
 					class="posts__link"
-					href="./comments.html?post=${element.id}">
+					href="./comments.html?postId=${element.id}">
 						<div class="posts__item">
 							<img id='${element.id}' class="posts__photo" src="${element.photo}" alt="">
 							<h3 class="posts__title">${element.title}</h3>

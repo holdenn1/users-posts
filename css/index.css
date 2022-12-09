@@ -177,35 +177,52 @@ a {
   margin: 0 12px;
 }
 
-.comment-header {
+.comments-header {
   width: 100%;
   margin-bottom: 80px;
 }
-.comment-header .post {
+.comments-header .post {
   max-height: 270px;
   margin: 40px;
 }
-.comment-header .post__item {
+.comments-header .post__item {
   display: flex;
   align-items: center;
 }
-.comment-header .post__photo {
+.comments-header .post__photo {
   max-width: 360px;
   height: 270px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.comment-header .post__title {
+.comments-header .post__title {
   font-size: 20px;
   line-height: 120%;
   text-transform: capitalize;
-  margin-bottom: 16px;
+  margin: 0 0 16px 16px;
   text-align: center;
 }
-.comment-header .post__description {
+.comments-header .post__description {
   font-size: 18px;
   line-height: 140%;
   text-transform: capitalize;
   text-align: center;
   margin: 0 50px;
+}
+
+.comments-main .comment {
+  max-width: 1000px;
+  margin: 0 auto 30px;
+}
+.comments-main .comment .user-email {
+  font-size: 20px;
+  line-height: 120%;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.comments-main .comment .comment-text {
+  font-size: 18px;
+  line-height: 140%;
+  text-transform: capitalize;
 }

@@ -1,4 +1,4 @@
-.comment-header {
+.comments-header {
 	width: 100%;
 	margin-bottom: 80px;
 	.post {
@@ -17,7 +17,7 @@
 			font-size: 20px;
 			line-height: 120%;
 			text-transform: capitalize;
-			margin-bottom: 16px;
+			margin: 0 0 16px 16px;
 			text-align: center;
 		}
 		&__description {
@@ -26,6 +26,26 @@
 			text-transform: capitalize;
 			text-align: center;
 			margin: 0 50px;
+		}
+	}
+}
+.comments-main {
+	.comment {
+		max-width: 1000px;
+		margin: 0 auto 30px;
+
+		.user-email {
+			font-size: 20px;
+			line-height: 120%;
+			text-transform: capitalize;
+			margin-bottom: 10px;
+			font-weight: 700;
+		}
+		.comment-text {
+			font-size: 18px;
+			line-height: 140%;
+			text-transform: capitalize;
+			
 		}
 	}
 }
