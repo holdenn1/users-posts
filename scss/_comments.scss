@@ -1,18 +1,31 @@
 .comment-header {
 	width: 100%;
+	margin-bottom: 80px;
 	.post {
-		max-height: 200px;
+		max-height: 270px;
 		margin: 40px;
 		&__item {
 			display: flex;
+			align-items: center;
 		}
 		&__photo {
-			max-width: 320px;
+			max-width: 360px;
+			height: 270px;
+			object-fit: cover;
 		}
-		&__description{
-			text-transform: capitalize;
+		&__title {
+			font-size: 20px;
 			line-height: 120%;
-			margin: 0 20px;
+			text-transform: capitalize;
+			margin-bottom: 16px;
+			text-align: center;
+		}
+		&__description {
+			font-size: 18px;
+			line-height: 140%;
+			text-transform: capitalize;
+			text-align: center;
+			margin: 0 50px;
 		}
 	}
 }

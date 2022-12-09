@@ -66,18 +66,23 @@ a {
   width: 100%;
 }
 .container .users__link {
-  margin: 20px 0;
-  padding: 0 10px;
+  margin: 20px;
+  box-shadow: 0px 0px 10px 3px rgba(150, 149, 149, 0.75);
+  overflow: hidden;
+  border-radius: 8px;
+}
+.container .users__link:hover {
+  box-shadow: 0px 0px 20px 1px rgba(73, 72, 72, 0.75);
 }
 .container .users__item {
-  max-width: 230px;
-  height: 370px;
-  outline: 1px solid black;
-  overflow: hidden;
+  max-width: 320px;
+  height: 470px;
 }
 .container .users__img {
-  width: 230px;
-  height: 230px;
+  width: 280px;
+  height: 280px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .container .users__main {
   display: grid;
@@ -86,17 +91,19 @@ a {
   height: 120px;
 }
 .container .users__name {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   text-align: center;
-  margin: 12px 0;
+  margin: 18px 0 12px;
 }
 .container .users__city {
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
+  margin-bottom: 40px;
 }
 .container .users__website {
+  font-size: 18px;
   text-align: center;
 }
 
@@ -172,19 +179,33 @@ a {
 
 .comment-header {
   width: 100%;
+  margin-bottom: 80px;
 }
 .comment-header .post {
-  max-height: 200px;
+  max-height: 270px;
   margin: 40px;
 }
 .comment-header .post__item {
   display: flex;
+  align-items: center;
 }
 .comment-header .post__photo {
-  max-width: 320px;
+  max-width: 360px;
+  height: 270px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.comment-header .post__title {
+  font-size: 20px;
+  line-height: 120%;
+  text-transform: capitalize;
+  margin-bottom: 16px;
+  text-align: center;
 }
 .comment-header .post__description {
+  font-size: 18px;
+  line-height: 140%;
   text-transform: capitalize;
-  line-height: 120%;
-  margin: 0 20px;
+  text-align: center;
+  margin: 0 50px;
 }

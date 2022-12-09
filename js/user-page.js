@@ -8,6 +8,7 @@ window.addEventListener('load', () => {
 	const user = parseInt(searchParams.get('item'));
 	const usersUrl = `http://localhost:3000/users/${user}`;
 	const postsUrl = `http://localhost:3000/posts?userId=${user}`;
+
 	fetch(usersUrl)
 		.then((response) => response.json())
 		.then((data) => {
@@ -27,6 +28,7 @@ window.addEventListener('load', () => {
 				`,
 			);
 		});
+		
 	fetch(postsUrl)
 		.then((response) => response.json())
 		.then((postData) => {
