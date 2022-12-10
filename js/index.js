@@ -1,6 +1,6 @@
 'use strict';
 const users = document.querySelector('.users');
-const url = 'http://localhost:3000/users';
+const url = 'http://localhost:3000/users?_start=0&_end=8';
 
 async function loadUsers() {
 	const response = await fetch(url);

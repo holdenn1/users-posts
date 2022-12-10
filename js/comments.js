@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 		const response = await fetch(url);
 		const data = await response.json();
 		data.forEach((data) => {
-			const {photo, title, body} = data
+			const { photo, title, body } = data;
 			commentHeader.insertAdjacentHTML(
 				'beforeend',
 				`<div class="post">
@@ -37,12 +37,13 @@ window.addEventListener('load', () => {
 		const response = await fetch(url);
 		const data = await response.json();
 		data.forEach((element) => {
-			const {postId, email,  body} = element
+			const {email, body } = element;
 			commentMain.insertAdjacentHTML(
 				'beforeend',
-				`<div postId="${postId}" class="comment">
+				`<div class="comment">
 					<h3 class="user-email">${email}</h3>
 					<p class="comment-text">${body}</p>
+					
 				</div>`,
 			);
 		});

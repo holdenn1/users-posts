@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
 	const searchParams = new URLSearchParams(pageUrl);
 	const user = parseInt(searchParams.get('id'));
 	const usersUrl = `http://localhost:3000/users/${user}`;
-	const postsUrl = `http://localhost:3000/posts?userId=${user}`;
+	const postsUrl = `http://localhost:3000/posts?_start=0&_end=6/userId=${user}`;
 	const userPageHeader = document.querySelector('.peage__header');
 	const posts = document.querySelector('.posts');
 
