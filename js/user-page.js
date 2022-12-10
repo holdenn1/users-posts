@@ -12,14 +12,15 @@ window.addEventListener('load', () => {
 	async function loadUserTitle(url) {
 		const response = await fetch(url);
 		const data = await response.json();
+		const {id, name, photo, address:{city}, website} = data
 		userPageHeader.insertAdjacentHTML(
 			'beforeend',
-			`<div id=${data.id} class="user">
-							<img src="${data.photo}" alt="" class="avatar">
+			`<div id=${id} class="user">
+							<img src="${photo}" alt="" class="avatar">
 							<div class="user__description">
-								<h4 class="user__name">${data.name}</h4>
-								<p class="user__city">City: ${data.address.city}</p>
-								<a class="user__website" href="#">${data.website}</a>
+								<h4 class="user__name">${name}</h4>
+								<p class="user__city">City: ${city}</p>
+								<a class="user__website" href="#">${website}</a>
 							</div>
 						</div>
 					</div>
@@ -32,15 +33,16 @@ window.addEventListener('load', () => {
 		const response = await fetch(url)
 		const data = await response.json()
 		data.forEach((element) => {
+			const {id, photo, title, body} = element
 			posts.insertAdjacentHTML(
 				'beforeend',
 				`<a 
 				class="posts__link"
-				href="./comments.html?postId=${element.id}">
+				href="./comments.html?postId=${id}">
 					<div class="posts__item">
-						<img id='${element.id}' class="posts__photo" src="${element.photo}" alt="">
-						<h3 class="posts__title">${element.title}</h3>
-						<p class="posts__description">${element.body}</p>
+						<img id='${id}' class="posts__photo" src="${photo}" alt="">
+						<h3 class="posts__title">${title}</h3>
+						<p class="posts__description">${body}</p>
 					</div>
 				</a>`,
 			);

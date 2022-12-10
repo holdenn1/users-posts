@@ -47,10 +47,6 @@ a {
   justify-content: center;
   align-items: center;
 }
-.footer__title {
-  font-size: 16px;
-  color: azure;
-}
 
 .container {
   max-width: 1400px;

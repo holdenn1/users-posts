@@ -13,17 +13,18 @@ window.addEventListener('load', () => {
 		const response = await fetch(url);
 		const data = await response.json();
 		data.forEach((data) => {
+			const {photo, title, body} = data
 			commentHeader.insertAdjacentHTML(
 				'beforeend',
 				`<div class="post">
 			<div class="post__item">
 				<img
 					class="post__photo"
-					src="${data.photo}"
+					src="${photo}"
 					alt=""/>
 				<div>
-				<h3 class="post__title">${data.title}</h3>
-				<p class="post__description">${data.body}</p>
+				<h3 class="post__title">${title}</h3>
+				<p class="post__description">${body}</p>
 				</div>
 			</div>
 		</div>`,
@@ -36,11 +37,12 @@ window.addEventListener('load', () => {
 		const response = await fetch(url);
 		const data = await response.json();
 		data.forEach((element) => {
+			const {postId, email,  body} = element
 			commentMain.insertAdjacentHTML(
 				'beforeend',
-				`<div postId="${element.postId}" class="comment">
-					<h3 class="user-email">${element.email}</h3>
-					<p class="comment-text">${element.body}</p>
+				`<div postId="${postId}" class="comment">
+					<h3 class="user-email">${email}</h3>
+					<p class="comment-text">${body}</p>
 				</div>`,
 			);
 		});
