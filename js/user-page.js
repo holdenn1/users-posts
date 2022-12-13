@@ -4,15 +4,21 @@ window.addEventListener('load', () => {
 	const pageUrl = document.location.search;
 	const searchParams = new URLSearchParams(pageUrl);
 	const user = parseInt(searchParams.get('id'));
-	const usersUrl = `http://localhost:3000/users/${user}`;
-	const postsUrl = `http://localhost:3000/posts?_start=0&_end=6/userId=${user}`;
 	const userPageHeader = document.querySelector('.peage__header');
+	const postsLoadingBtn = document.querySelector('#load-posts');
+	const postsOnLoad = document.getElementsByClassName('posts__link');
 	const posts = document.querySelector('.posts');
 
-	async function loadUserTitle(url) {
-		const response = await fetch(url);
+	async function loadUserTitle() {
+		const response = await fetch(`http://localhost:3000/users/${user}`);
 		const data = await response.json();
-		const {id, name, photo, address:{city}, website} = data
+		const {
+			id,
+			name,
+			photo,
+			address: { city },
+			website,
+		} = data;
 		userPageHeader.insertAdjacentHTML(
 			'beforeend',
 			`<div id=${id} class="user">
@@ -27,17 +33,17 @@ window.addEventListener('load', () => {
 					<div class="pege__main">`,
 		);
 	}
-	loadUserTitle(usersUrl);
+	loadUserTitle();
 
-	async function loadUserPosts (url){
-		const response = await fetch(url)
-		const data = await response.json()
+	async function loadUserPosts() {
+		const response = await fetch(`http://localhost:3000/posts?userId=${user}&_start=0&_end=4`);
+		const data = await response.json();
 		data.forEach((element) => {
-			const {id, photo, title, body} = element
+			const { id, photo, title, body } = element;
 			posts.insertAdjacentHTML(
 				'beforeend',
-				`<a 
-				class="posts__link"
+				`<a class="posts__link"
+				
 				href="./comments.html?postId=${id}">
 					<div class="posts__item">
 						<img id='${id}' class="posts__photo" src="${photo}" alt="">
@@ -48,5 +54,33 @@ window.addEventListener('load', () => {
 			);
 		});
 	}
-	loadUserPosts(postsUrl)
+	loadUserPosts();
+
+	async function addUserPosts() {
+		const limit = 4;
+		const response = await fetch(
+			`http://localhost:3000/posts?userId=${user}&_start=${postsOnLoad.length}&_limit=${limit}`,
+		);
+		const data = await response.json();
+		data.forEach((element) => {
+			const { id, photo, title, body } = element;
+			posts.insertAdjacentHTML(
+				'beforeend',
+				`<a class="posts__link"
+				
+				href="./comments.html?postId=${id}">
+					<div class="posts__item">
+						<img id='${id}' class="posts__photo" src="${photo}" alt="">
+						<h3 class="posts__title">${title}</h3>
+						<p class="posts__description">${body}</p>
+					</div>
+				</a>`,
+			);
+		});
+		console.log(data.length);
+		if (data.length < limit) {
+			postsLoadingBtn.style.display = 'none';
+		}
+	}
+	postsLoadingBtn.addEventListener('click', addUserPosts);
 });
