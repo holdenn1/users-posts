@@ -40,7 +40,7 @@ async function loadUsers() {
 }
 loadUsers();
 
-async function addUsers() {
+async function showMoreUsers() {
 	const limit = 8;
 	const response = await fetch(
 		`http://localhost:3000/users?_start=${usersOnLoad.length}&_limit=${limit}`,
@@ -80,4 +80,4 @@ async function addUsers() {
 		usersLoadingBtn.style.display = 'none';
 	}
 }
-usersLoadingBtn.addEventListener('click', addUsers);
+usersLoadingBtn.addEventListener('click', showMoreUsers);

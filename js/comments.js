@@ -1,16 +1,17 @@
 'use strict';
 
+const commentHeader = document.querySelector('.comments-header');
+const commentMain = document.querySelector('.comments-main');
+const commentOnLoad = document.getElementsByClassName('comment');
+const commentsLoadingBtn = document.querySelector('#load-comments');
+
 window.addEventListener('load', () => {
 	const comments = document.location.search;
 	const searchParams = new URLSearchParams(comments);
 	const post = parseInt(searchParams.get('postId'));
-	const postsUrl = `http://localhost:3000/posts?id=${post}`;
-	const commentsUrl = `http://localhost:3000/comments?postId=${post}`;
-	const commentHeader = document.querySelector('.comments-header');
-	const commentMain = document.querySelector('.comments-main');
-
-	async function loadPost(url) {
-		const response = await fetch(url);
+	
+	async function loadPost() {
+		const response = await fetch( `http://localhost:3000/posts?id=${post}`);
 		const data = await response.json();
 		data.forEach((data) => {
 			const { photo, title, body } = data;
@@ -31,10 +32,10 @@ window.addEventListener('load', () => {
 			);
 		});
 	}
-	loadPost(postsUrl);
+	loadPost();
 
-	async function loadComments(url) {
-		const response = await fetch(url);
+	async function loadComments() {
+		const response = await fetch(`http://localhost:3000/comments?postId=${post}&_start=0&_end=4`);
 		const data = await response.json();
 		data.forEach((element) => {
 			const {email, body } = element;
@@ -48,5 +49,28 @@ window.addEventListener('load', () => {
 			);
 		});
 	}
-	loadComments(commentsUrl);
+	loadComments();
+
+	async function showMoreComments() {
+		const limit = 4;
+		const response = await fetch(
+			`http://localhost:3000/comments?postId=${post}&_start=${commentOnLoad.length}&_limit=${limit}`,
+		);
+		const data = await response.json();
+		data.forEach((element) => {
+			const {email, body } = element;
+			commentMain.insertAdjacentHTML(
+				'beforeend',
+				`<div class="comment">
+					<h3 class="user-email">${email}</h3>
+					<p class="comment-text">${body}</p>
+					
+				</div>`,
+			);
+		});
+		if (data.length < limit) {
+			commentsLoadingBtn.style.display = 'none';
+		}
+	}
+	commentsLoadingBtn.addEventListener('click', showMoreComments);
 });

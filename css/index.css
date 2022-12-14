@@ -32,7 +32,7 @@ a {
   justify-content: center;
 }
 .load-contant__icon {
-  margin: 50px;
+  margin: 20px 50px 50px 50px;
   border-radius: 100%;
 }
 .load-contant__icon:hover {
@@ -73,6 +73,7 @@ a {
   justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 30px;
 }
 .container .users__link {
   margin: 20px;
@@ -150,6 +151,7 @@ a {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 .page .posts__link {
   overflow: hidden;
@@ -219,6 +221,9 @@ a {
   margin: 0 50px;
 }
 
+.comments-main {
+  margin-bottom: 30px;
+}
 .comments-main .comment {
   max-width: 1000px;
   margin: 0 auto 30px;

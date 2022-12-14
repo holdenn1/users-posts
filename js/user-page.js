@@ -1,14 +1,15 @@
 'use strict';
 
+const userPageHeader = document.querySelector('.peage__header');
+const postsLoadingBtn = document.querySelector('#load-posts');
+const postsOnLoad = document.getElementsByClassName('posts__link');
+const posts = document.querySelector('.posts');
+
 window.addEventListener('load', () => {
 	const pageUrl = document.location.search;
 	const searchParams = new URLSearchParams(pageUrl);
 	const user = parseInt(searchParams.get('id'));
-	const userPageHeader = document.querySelector('.peage__header');
-	const postsLoadingBtn = document.querySelector('#load-posts');
-	const postsOnLoad = document.getElementsByClassName('posts__link');
-	const posts = document.querySelector('.posts');
-
+	
 	async function loadUserTitle() {
 		const response = await fetch(`http://localhost:3000/users/${user}`);
 		const data = await response.json();
@@ -43,7 +44,7 @@ window.addEventListener('load', () => {
 			posts.insertAdjacentHTML(
 				'beforeend',
 				`<a class="posts__link"
-				
+				target="_blank"
 				href="./comments.html?postId=${id}">
 					<div class="posts__item">
 						<img id='${id}' class="posts__photo" src="${photo}" alt="">
@@ -56,7 +57,7 @@ window.addEventListener('load', () => {
 	}
 	loadUserPosts();
 
-	async function addUserPosts() {
+	async function showMorePosts() {
 		const limit = 4;
 		const response = await fetch(
 			`http://localhost:3000/posts?userId=${user}&_start=${postsOnLoad.length}&_limit=${limit}`,
@@ -67,7 +68,7 @@ window.addEventListener('load', () => {
 			posts.insertAdjacentHTML(
 				'beforeend',
 				`<a class="posts__link"
-				
+				target="_blank"
 				href="./comments.html?postId=${id}">
 					<div class="posts__item">
 						<img id='${id}' class="posts__photo" src="${photo}" alt="">
@@ -82,5 +83,5 @@ window.addEventListener('load', () => {
 			postsLoadingBtn.style.display = 'none';
 		}
 	}
-	postsLoadingBtn.addEventListener('click', addUserPosts);
+	postsLoadingBtn.addEventListener('click', showMorePosts);
 });
