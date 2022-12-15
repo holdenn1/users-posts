@@ -11,13 +11,30 @@
 	<body>
 		<div class="wrapper">
 			<header class="header">
-				<h1 class="header__title">Users</h1>
+				<div class="header__contant">
+					<h1 class="header__title">Users</h1>
+					<img class="filter-btn" src="./img/icons/filter.png" alt="" />
+				</div>
 			</header>
 			<main class="main">
 				<div class="container">
+					<div class="filter">
+						<div class="filter__contant">
+							<h3 class="filter__title">Filter</h3>
+							<div class="filter__name">
+								<h4>Name</h4>
+								<input type="text" class="filter__name-input" />
+							</div>
+							<div class="filter__age">
+								<h4>Age</h4>
+								<input type="text" class="filter__age-input" />
+							</div>
+							<button class="search-btn">Search</button>
+						</div>
+					</div>
 					<div class="users"></div>
 					<div class="load-contant">
-						<img id="load-users" src="./img/icons/add.png" alt="" class="load-contant__icon">
+						<img id="load-users" src="./img/icons/add.png" alt="" class="load-contant__icon" />
 					</div>
 				</div>
 			</main>

@@ -2,6 +2,8 @@
 
 const users = document.querySelector('.users');
 const usersLoadingBtn = document.querySelector('#load-users');
+const filterBtn = document.querySelector('.filter-btn');
+const filter = document.querySelector('.filter');
 const usersOnLoad = document.getElementsByClassName('users__link');
 
 async function loadUsers() {
@@ -11,6 +13,7 @@ async function loadUsers() {
 		const {
 			id,
 			name,
+			age,
 			photo,
 			address: { city },
 			website,
@@ -30,6 +33,7 @@ async function loadUsers() {
 					</div>
 						<div class="users__main">
 							<h4 class="users__name">${name}</h4>
+							<p class="users__age">${age} y. o.</p>
 							<p class="users__city">City: ${city}</p>
 							<p class="users__website">${website}</p>
 						</div>
@@ -50,6 +54,7 @@ async function showMoreUsers() {
 		const {
 			id,
 			name,
+			age,
 			photo,
 			address: { city },
 			website,
@@ -69,6 +74,7 @@ async function showMoreUsers() {
 					</div>
 						<div class="users__main">
 							<h4 class="users__name">${name}</h4>
+							<p class="users__age">${age} y. o.</p>
 							<p class="users__city">City: ${city}</p>
 							<p class="users__website">${website}</p>
 						</div>
@@ -81,3 +87,14 @@ async function showMoreUsers() {
 	}
 }
 usersLoadingBtn.addEventListener('click', showMoreUsers);
+
+function showFilter() {
+	if (event.target.closest('.filter-btn')) {
+		filter.classList.toggle('filter_active');
+	}
+	if (!event.target.closest('.filter') && !event.target.closest('.filter-btn')) {
+		filter.classList.remove('filter_active');
+	}
+}
+
+document.addEventListener('click', showFilter);

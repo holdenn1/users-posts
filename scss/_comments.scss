@@ -3,7 +3,7 @@
 	margin-bottom: 80px;
 	.post {
 		max-height: 270px;
-		margin: 40px;
+		margin: 100px 40px 40px 40px;
 		&__item {
 			display: flex;
 			align-items: center;
@@ -46,7 +46,6 @@
 			font-size: 18px;
 			line-height: 140%;
 			text-transform: capitalize;
-			
 		}
 	}
 }

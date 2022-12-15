@@ -5,8 +5,22 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	&__contant {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 70px;
+		width: 1400px;
+	}
 	&__title {
 		font-size: 38px;
 		color: azure;
+	}
+	.filter-btn {
+		cursor: pointer;
 	}
 }
