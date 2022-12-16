@@ -142,6 +142,14 @@ button {
   font-size: 18px;
   text-align: center;
 }
+.container .users-filter-contant {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 70px;
+}
 
 .filter {
   position: fixed;
@@ -163,15 +171,6 @@ button {
 }
 .filter__title {
   font-size: 28px;
-}
-.filter__name h4 {
-  margin-bottom: 8px;
-  font-size: 18px;
-  font-weight: 500;
-}
-.filter__name-input {
-  height: 24px;
-  width: 240px;
 }
 .filter__age h4 {
   margin-bottom: 8px;
