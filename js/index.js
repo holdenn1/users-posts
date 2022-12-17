@@ -7,86 +7,100 @@ const usersOnLoad = document.getElementsByClassName('users__link');
 const filter = document.querySelector('.filter');
 const searchBtn = document.querySelector('.search-btn');
 const ageInput = document.querySelector('.filter__age-input');
+const spinner = document.querySelector('.lds-default');
 
 async function loadUsers() {
-	const response = await fetch(`http://localhost:3000/users?_start=0&_end=8`);
-	const data = await response.json();
-	await data.forEach((element) => {
-		const {
-			id,
-			name,
-			age,
-			photo,
-			address: { city },
-			website,
-		} = element;
-		users.insertAdjacentHTML(
-			'beforeend',
-			`<a class="users__link"
-				target="_blank"
-				href="./pages/user-page.html?id=${id}">
-				<div id=${id} class="users__item">
-					<div class="users__header">
-						<img
-							class="users__img"
-							src="${photo}"
-							alt=""
-						/>
-					</div>
-						<div class="users__main">
-							<h4 class="users__name">${name}</h4>
-							<p class="users__age">${age} y. o.</p>
-							<p class="users__city">City: ${city}</p>
-							<p class="users__website">${website}</p>
+	try{
+		const response = await fetch(`http://localhost:3000/users?_start=0&_end=8`);
+		const data = await response.json();
+		await data.forEach((element) => {
+			const {
+				id,
+				name,
+				age,
+				photo,
+				address: { city },
+				website,
+			} = element;
+			users.insertAdjacentHTML(
+				'beforeend',
+				`<a class="users__link"
+					target="_blank"
+					href="./pages/user-page.html?id=${id}">
+					<div id=${id} class="users__item">
+						<div class="users__header">
+							<img
+								class="users__img"
+								src="${photo}"
+								alt=""
+							/>
 						</div>
-						</div>
-				</a>`,
-		);
-	});
+							<div class="users__main">
+								<h4 class="users__name">${name}</h4>
+								<p class="users__age">${age} y. o.</p>
+								<p class="users__city">City: ${city}</p>
+								<p class="users__website">${website}</p>
+							</div>
+							</div>
+					</a>`,
+			);
+		});
+		spinner.style.display = 'none';
+	}catch (e){
+		console.error(e)
+		spinner.style.display = 'inline-block';
+		alert('Error: Users not found')
+	}
 }
-loadUsers();
+
+setTimeout(loadUsers, 2000)
 
 async function showMoreUsers() {
-	const limit = 8;
-	const response = await fetch(
-		`http://localhost:3000/users?_start=${usersOnLoad.length}&_limit=${limit}`,
-	);
-	const data = await response.json();
-	data.forEach((element) => {
-		const {
-			id,
-			name,
-			age,
-			photo,
-			address: { city },
-			website,
-		} = element;
-		users.insertAdjacentHTML(
-			'beforeend',
-			`<a class="users__link"
-				target="_blank"
-				href="./pages/user-page.html?id=${id}">
-				<div id=${id} class="users__item">
-					<div class="users__header">
-						<img
-							class="users__img"
-							src="${photo}"
-							alt=""
-						/>
-					</div>
-						<div class="users__main">
-							<h4 class="users__name">${name}</h4>
-							<p class="users__age">${age} y. o.</p>
-							<p class="users__city">City: ${city}</p>
-							<p class="users__website">${website}</p>
-						</div>
-						</div>
-				</a>`,
+	try{
+		const limit = 8;
+		const response = await fetch(
+			`http://localhost:3000/users?_start=${usersOnLoad.length}&_limit=${limit}`,
 		);
-	});
-	if (data.length < limit) {
-		usersLoadingBtn.style.display = 'none';
+		const data = await response.json();
+		data.forEach((element) => {
+			const {
+				id,
+				name,
+				age,
+				photo,
+				address: { city },
+				website,
+			} = element;
+			users.insertAdjacentHTML(
+				'beforeend',
+				`<a class="users__link"
+					target="_blank"
+					href="./pages/user-page.html?id=${id}">
+					<div id=${id} class="users__item">
+						<div class="users__header">
+							<img
+								class="users__img"
+								src="${photo}"
+								alt=""
+							/>
+						</div>
+							<div class="users__main">
+								<h4 class="users__name">${name}</h4>
+								<p class="users__age">${age} y. o.</p>
+								<p class="users__city">City: ${city}</p>
+								<p class="users__website">${website}</p>
+							</div>
+							</div>
+					</a>`,
+			);
+		});
+		if (data.length < limit) {
+			usersLoadingBtn.style.display = 'none';
+		}
+	}catch (error){
+		console.error(error)
 	}
+	
 }
 usersLoadingBtn.addEventListener('click', showMoreUsers);
 
@@ -102,54 +116,60 @@ function showFilter() {
 document.addEventListener('click', showFilter);
 
 async function searchUsers() {
-	users.remove();
-	filterUsersContainer.innerHTML = '';
-	const response = await fetch(`http://localhost:3000/users`);
-	const data = await response.json();
-	const inputValue = +ageInput.value;
-	const findUsers = data.filter((data) => data.age == inputValue);
-	if (inputValue == 0) {
-		alert('Set the search age');
-	}
-	if (findUsers.length == 0) {
-		alert('No users found');
-	}
-	findUsers.forEach((element) => {
-		const {
-			id,
-			name,
-			age,
-			photo,
-			address: { city },
-			website,
-		} = element;
-		filterUsersContainer.insertAdjacentHTML(
-			'beforeend',
-			`<a class="users__link"
-				target="_blank"
-				href="./pages/user-page.html?id=${id}">
-				<div id=${id} class="users__item">
-					<div class="users__header">
-						<img
-							class="users__img"
-							src="${photo}"
-							alt=""
-						/>
-					</div>
-						<div class="users__main">
-							<h4 class="users__name">${name}</h4>
-							<p class="users__age">${age} y. o.</p>
-							<p class="users__city">City: ${city}</p>
-							<p class="users__website">${website}</p>
+	try{
+		users.remove();
+		filterUsersContainer.style.display = 'flex';
+		filterUsersContainer.innerHTML = '';
+		const response = await fetch(`http://localhost:3000/users`);
+		const data = await response.json();
+		const inputValue = +ageInput.value;
+		const findUsers = data.filter((data) => data.age == inputValue);
+		if (inputValue == 0) {
+			alert('Set the search age');
+		}
+		if (findUsers.length == 0) {
+			alert('No users found');
+		}
+		findUsers.forEach((element) => {
+			const {
+				id,
+				name,
+				age,
+				photo,
+				address: { city },
+				website,
+			} = element;
+			filterUsersContainer.insertAdjacentHTML(
+				'beforeend',
+				`<a class="users__link"
+					target="_blank"
+					href="./pages/user-page.html?id=${id}">
+					<div id=${id} class="users__item">
+						<div class="users__header">
+							<img
+								class="users__img"
+								src="${photo}"
+								alt=""
+							/>
 						</div>
-						</div>
-				</a>`,
-		);
-	});
-	if (findUsers.length < 8) {
-		usersLoadingBtn.style.display = 'none';
+							<div class="users__main">
+								<h4 class="users__name">${name}</h4>
+								<p class="users__age">${age} y. o.</p>
+								<p class="users__city">City: ${city}</p>
+								<p class="users__website">${website}</p>
+							</div>
+							</div>
+					</a>`,
+			);
+		});
+		if (findUsers.length < 8) {
+			usersLoadingBtn.style.display = 'none';
+		}
+		clearInput();
+	}catch (error){
+		console.error(error)
 	}
-	clearInput();
+	
 }
 searchBtn.addEventListener('click', () => {
 	filter.classList.remove('filter_active');
