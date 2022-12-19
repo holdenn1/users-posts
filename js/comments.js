@@ -6,6 +6,7 @@ const commentOnLoad = document.getElementsByClassName('comment');
 const commentsLoadingBtn = document.querySelector('#load-comments');
 const spinner = document.querySelector('.lds-default');
 const contantSpinner = document.querySelector('.load-contant');
+const err = document.querySelector('.error');
 
 let post;
 let observer;
@@ -40,15 +41,16 @@ async function loadPost() {
 			</div>`,
 			);
 		});
-	} catch {
-		console.error(e);
-		alert('Error: User not found');
+	} catch (error){
+		console.error(error);
+		err.style.display = 'flex';
+		err.insertAdjacentHTML('afterbegin', `<h4 class="error-text">Error: User not found</h4>`);
 	}
 }
 
 async function addComments(start) {
 	try {
-		let limit = 4;
+		const limit = 4;
 		const response = await fetch(
 			`http://localhost:3000/comments?postId=${post}&_start=${start}&_limit=${limit}`,
 		);
@@ -77,9 +79,10 @@ async function loadComments() {
 		if (hasMore) {
 			observer = observContant();
 		}
-	} catch {
-		console.error(e);
-		alert('Error: Posts not found');
+	} catch (error) {
+		console.error(error);
+		err.style.display = 'flex';
+		err.insertAdjacentHTML('afterbegin', `<h4 class="error-text">Error: Posts not found</h4>`);
 	} finally {
 		spinner.style.display = 'none';
 	}

@@ -6,6 +6,7 @@ const postsOnLoad = document.getElementsByClassName('posts__link');
 const posts = document.querySelector('.posts');
 const spinner = document.querySelector('.lds-default');
 const contantSpinner = document.querySelector('.load-contant');
+const err = document.querySelector('.error');
 
 let observer;
 let user;
@@ -42,15 +43,16 @@ async function loadUserTitle() {
 						</div>
 						<div class="pege__main">`,
 		);
-	} catch {
-		console.error(e);
-		alert('Error: User not found');
+	} catch (error){
+		console.error(error);
+		err.style.display = 'flex';
+		err.insertAdjacentHTML('afterbegin', `<h4 class="error-text">Error: User not found</h4>`);
 	} 
 }
 
 async function addPosts(start) {
 	try {
-		let limit = 4;
+		const limit = 4;
 		const response = await fetch(
 			`http://localhost:3000/posts?userId=${user}&_start=${start}&_limit=${limit}`,
 		);
@@ -85,7 +87,8 @@ async function loadUserPosts() {
 		}
 	} catch (error) {
 		console.error(error);
-		alert('Error: Posts not found');
+		err.style.display = 'flex';
+		err.insertAdjacentHTML('afterbegin', `<h4 class="error-text">Error: Posts not found</h4>`);
 	} finally {
 		spinner.style.display = 'none';
 	}

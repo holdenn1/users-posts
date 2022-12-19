@@ -8,6 +8,7 @@ const searchBtn = document.querySelector('.search-btn');
 const ageInput = document.querySelector('.filter__age-input');
 const spinner = document.querySelector('.lds-default');
 const contantSpinner = document.querySelector('.load-contant');
+const err = document.querySelector('.error');
 
 let observer;
 
@@ -68,7 +69,8 @@ async function loadUsers() {
 		}
 	} catch (error) {
 		console.error(error);
-		alert('Error: Users not found');
+		err.style.display = 'flex';
+		err.insertAdjacentHTML('afterbegin', `<h4 class="error-text">Error: Users not found</h4>`);
 	} finally {
 		spinner.style.display = 'none';
 	}
@@ -100,17 +102,15 @@ function showFilter() {
 async function searchUsers() {
 	try {
 		users.remove();
+		err.innerHTML = ''
 		filterUsersContainer.style.display = 'flex';
 		filterUsersContainer.innerHTML = '';
 		const response = await fetch(`http://localhost:3000/users`);
 		const data = await response.json();
 		const inputValue = +ageInput.value;
 		const findUsers = data.filter((data) => data.age == inputValue);
-		if (inputValue == 0) {
-			alert('Set the search age');
-		}
 		if (findUsers.length == 0) {
-			alert('No users found');
+			error()
 		}
 		findUsers.forEach((element) => {
 			const {
@@ -147,6 +147,8 @@ async function searchUsers() {
 		clearInput();
 	} catch (error) {
 		console.error(error);
+		err.style.display = 'flex';
+		err.insertAdjacentHTML('afterbegin', `<h4 class="error-text">No users found</h4>`)
 	}
 }
 
