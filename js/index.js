@@ -2,107 +2,91 @@
 
 const users = document.querySelector('.users');
 const filterUsersContainer = document.querySelector('.users-filter-contant');
-const usersLoadingBtn = document.querySelector('#load-users');
 const usersOnLoad = document.getElementsByClassName('users__link');
 const filter = document.querySelector('.filter');
 const searchBtn = document.querySelector('.search-btn');
 const ageInput = document.querySelector('.filter__age-input');
 const spinner = document.querySelector('.lds-default');
+const contantSpinner = document.querySelector('.load-contant');
+
+let observer;
+
+window.onload = () => {
+	loadUsers();
+	document.addEventListener('click', showFilter);
+	searchBtn.addEventListener('click', () => {
+		filter.classList.remove('filter_active');
+		searchUsers();
+	});
+};
+
+async function addUsers(start) {
+	const limit = 8;
+	const response = await fetch(`http://localhost:3000/users?_start=${start}&_limit=${limit}`);
+	const data = await response.json();
+	data.forEach((element) => {
+		const {
+			id,
+			name,
+			age,
+			photo,
+			address: { city },
+			website,
+		} = element;
+		users.insertAdjacentHTML(
+			'beforeend',
+			`<a class="users__link"
+				target="_blank"
+				href="./pages/user-page.html?id=${id}">
+				<div id=${id} class="users__item">
+					<div class="users__header">
+						<img
+							class="users__img"
+							src="${photo}"
+							alt=""
+						/>
+					</div>
+						<div class="users__main">
+							<h4 class="users__name">${name}</h4>
+							<p class="users__age">${age} y. o.</p>
+							<p class="users__city">City: ${city}</p>
+							<p class="users__website">${website}</p>
+						</div>
+						</div>
+				</a>`,
+		);
+	});
+	return { hasMore: data.length === limit };
+}
 
 async function loadUsers() {
-	try{
-		const response = await fetch(`http://localhost:3000/users?_start=0&_end=8`);
-		const data = await response.json();
-		await data.forEach((element) => {
-			const {
-				id,
-				name,
-				age,
-				photo,
-				address: { city },
-				website,
-			} = element;
-			users.insertAdjacentHTML(
-				'beforeend',
-				`<a class="users__link"
-					target="_blank"
-					href="./pages/user-page.html?id=${id}">
-					<div id=${id} class="users__item">
-						<div class="users__header">
-							<img
-								class="users__img"
-								src="${photo}"
-								alt=""
-							/>
-						</div>
-							<div class="users__main">
-								<h4 class="users__name">${name}</h4>
-								<p class="users__age">${age} y. o.</p>
-								<p class="users__city">City: ${city}</p>
-								<p class="users__website">${website}</p>
-							</div>
-							</div>
-					</a>`,
-			);
-		});
-		spinner.style.display = 'none';
-	}catch (e){
-		console.error(e)
-		spinner.style.display = 'inline-block';
-		alert('Error: Users not found')
-	}
-}
-
-setTimeout(loadUsers, 2000)
-
-async function showMoreUsers() {
-	try{
-		const limit = 8;
-		const response = await fetch(
-			`http://localhost:3000/users?_start=${usersOnLoad.length}&_limit=${limit}`,
-		);
-		const data = await response.json();
-		data.forEach((element) => {
-			const {
-				id,
-				name,
-				age,
-				photo,
-				address: { city },
-				website,
-			} = element;
-			users.insertAdjacentHTML(
-				'beforeend',
-				`<a class="users__link"
-					target="_blank"
-					href="./pages/user-page.html?id=${id}">
-					<div id=${id} class="users__item">
-						<div class="users__header">
-							<img
-								class="users__img"
-								src="${photo}"
-								alt=""
-							/>
-						</div>
-							<div class="users__main">
-								<h4 class="users__name">${name}</h4>
-								<p class="users__age">${age} y. o.</p>
-								<p class="users__city">City: ${city}</p>
-								<p class="users__website">${website}</p>
-							</div>
-							</div>
-					</a>`,
-			);
-		});
-		if (data.length < limit) {
-			usersLoadingBtn.style.display = 'none';
+	try {
+		spinner.style.display = 'flex';
+		const { hasMore } = await addUsers(0);
+		if (hasMore) {
+			observer = observContant();
 		}
-	}catch (error){
-		console.error(error)
+	} catch (error) {
+		console.error(error);
+		alert('Error: Users not found');
+	} finally {
+		spinner.style.display = 'none';
 	}
-	
 }
-usersLoadingBtn.addEventListener('click', showMoreUsers);
+
+async function loadMoreUsers() {
+	try {
+		contantSpinner.style.height = 'auto';
+		const { hasMore } = await addUsers(usersOnLoad.length);
+		if (!hasMore && observer) {
+			observer.disconnect();
+		}
+	} catch (error) {
+		console.error(error);
+	} finally {
+		contantSpinner.style.height = '0';
+	}
+}
 
 function showFilter() {
 	if (event.target.closest('.filter-btn')) {
@@ -113,10 +97,8 @@ function showFilter() {
 	}
 }
 
-document.addEventListener('click', showFilter);
-
 async function searchUsers() {
-	try{
+	try {
 		users.remove();
 		filterUsersContainer.style.display = 'flex';
 		filterUsersContainer.innerHTML = '';
@@ -162,20 +144,22 @@ async function searchUsers() {
 					</a>`,
 			);
 		});
-		if (findUsers.length < 8) {
-			usersLoadingBtn.style.display = 'none';
-		}
 		clearInput();
-	}catch (error){
-		console.error(error)
+	} catch (error) {
+		console.error(error);
 	}
-	
 }
-searchBtn.addEventListener('click', () => {
-	filter.classList.remove('filter_active');
-	searchUsers();
-});
 
 function clearInput() {
 	ageInput.value = '';
+}
+
+function observContant() {
+	const observer = new IntersectionObserver(([{ isIntersecting }]) => {
+		if (isIntersecting) {
+			loadMoreUsers();
+		}
+	});
+	observer.observe(contantSpinner);
+	return observer;
 }

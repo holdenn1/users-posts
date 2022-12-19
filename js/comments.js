@@ -5,22 +5,28 @@ const commentMain = document.querySelector('.comments-main');
 const commentOnLoad = document.getElementsByClassName('comment');
 const commentsLoadingBtn = document.querySelector('#load-comments');
 const spinner = document.querySelector('.lds-default');
+const contantSpinner = document.querySelector('.load-contant');
 
+let post;
+let observer;
 
 window.addEventListener('load', () => {
 	const comments = document.location.search;
 	const searchParams = new URLSearchParams(comments);
-	const post = parseInt(searchParams.get('postId'));
-	
-	async function loadPost() {
-		try{
-			const response = await fetch( `http://localhost:3000/posts?id=${post}`);
-			const data = await response.json();
-			data.forEach((data) => {
-				const { photo, title, body } = data;
-				commentHeader.insertAdjacentHTML(
-					'beforeend',
-					`<div class="post">
+	post = parseInt(searchParams.get('postId'));
+	loadPost();
+	loadComments();
+});
+
+async function loadPost() {
+	try {
+		const response = await fetch(`http://localhost:3000/posts?id=${post}`);
+		const data = await response.json();
+		data.forEach((data) => {
+			const { photo, title, body } = data;
+			commentHeader.insertAdjacentHTML(
+				'beforeend',
+				`<div class="post">
 				<div class="post__item">
 					<img
 						class="post__photo"
@@ -32,61 +38,73 @@ window.addEventListener('load', () => {
 					</div>
 				</div>
 			</div>`,
-				);
-			});
-		}catch {
-			console.error(e);
-			alert('Error: User not found');
-		}
+			);
+		});
+	} catch {
+		console.error(e);
+		alert('Error: User not found');
 	}
-	setTimeout(loadPost,1500)
+}
 
-
-	async function loadComments() {
-		try{
-			const response = await fetch(`http://localhost:3000/comments?postId=${post}&_start=0&_end=4`);
-			const data = await response.json();
-			data.forEach((element) => {
-				const {email, body } = element;
-				commentMain.insertAdjacentHTML(
-					'beforeend',
-					`<div class="comment">
+async function addComments(start) {
+	try {
+		let limit = 4;
+		const response = await fetch(
+			`http://localhost:3000/comments?postId=${post}&_start=${start}&_limit=${limit}`,
+		);
+		const data = await response.json();
+		data.forEach((element) => {
+			const { email, body } = element;
+			commentMain.insertAdjacentHTML(
+				'beforeend',
+				`<div class="comment">
 						<h3 class="user-email">${email}</h3>
 						<p class="comment-text">${body}</p>
 						
 					</div>`,
-				);
-			});
-		spinner.style.display = 'none';
-		} catch {
-			console.error(e);
-			spinner.style.display = 'inline-block';
-			alert('Error: Posts not found');
-		}
-	}
-	setTimeout(loadComments,1500)
-	
-
-	async function showMoreComments() {
-		const limit = 4;
-		const response = await fetch(
-			`http://localhost:3000/comments?postId=${post}&_start=${commentOnLoad.length}&_limit=${limit}`,
-		);
-		const data = await response.json();
-		data.forEach((element) => {
-			const {email, body } = element;
-			commentMain.insertAdjacentHTML(
-				'beforeend',
-				`<div class="comment">
-					<h3 class="user-email">${email}</h3>
-					<p class="comment-text">${body}</p>
-					
-				</div>`,
 			);
 		});
-		if (data.length < limit) {
-			commentsLoadingBtn.style.display = 'none';
-		}
+		return { hasMore: data.length === limit };
+	} catch (error) {
+		console.error(error);
 	}
-	commentsLoadingBtn.addEventListener('click', showMoreComments);
-});
+}
+
+async function loadComments() {
+	try {
+		spinner.style.display = 'flex';
+		const { hasMore } = await addComments(0);
+		if (hasMore) {
+			observer = observContant();
+		}
+	} catch {
+		console.error(e);
+		alert('Error: Posts not found');
+	} finally {
+		spinner.style.display = 'none';
+	}
+}
+
+async function loadMoreComments() {
+	try {
+		contantSpinner.style.height = 'auto';
+		const { hasMore } = await addComments(commentOnLoad.length);
+		if (!hasMore && observer) {
+			observer.disconnect();
+		}
+	} catch (error) {
+		console.error(error);
+	} finally {
+		contantSpinner.style.height = '0';
+	}
+}
+
+function observContant() {
+	const observer = new IntersectionObserver(([{ isIntersecting }]) => {
+		if (isIntersecting) {
+			loadMoreComments();
+		}
+	});
+	observer.observe(contantSpinner);
+	return observer;
+}
