@@ -20,14 +20,13 @@
 			overflow: hidden;
 			border-radius: 8px;
 			&:hover {
-				box-shadow: 0px 0px 20px 1px orangered;
+				box-shadow: 0px 0px 10px 1px orangered;
 			}
 		}
 		&__item {
 			max-width: 320px;
 			height: 470px;
 			background-color: rgb(16, 16, 16);
-			
 		}
 		&__img {
 			width: 280px;
@@ -45,29 +44,26 @@
 			font-weight: 700;
 			text-align: center;
 			margin: 18px 0 12px;
-			color: aliceblue;
+			color: orangered;
 		}
 		&__age {
 			font-size: 20px;
 			font-weight: 600;
 			text-align: center;
 			margin-bottom: 20px;
-			color: aliceblue;
 		}
 		&__city {
 			text-align: center;
 			font-size: 20px;
 			font-weight: 600;
 			margin-bottom: 40px;
-			color: aliceblue;
 		}
 		&__website {
 			font-size: 18px;
 			text-align: center;
-			color: aliceblue;
 		}
 	}
-	.users-filter-contant{
+	.users-filter-contant {
 		display: none;
 		justify-content: space-around;
 		flex-wrap: wrap;
@@ -76,4 +72,3 @@
 		margin-top: 70px;
 	}
 }
-

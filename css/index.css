@@ -16,7 +16,7 @@ button {
   font-weight: normal;
   line-height: 100%;
   font-size: 16px;
-  color: rgb(60, 60, 60);
+  color: aliceblue;
   text-decoration: none;
 }
 
@@ -108,7 +108,7 @@ button {
   border-radius: 8px;
 }
 .container .users__link:hover {
-  box-shadow: 0px 0px 20px 1px orangered;
+  box-shadow: 0px 0px 10px 1px orangered;
 }
 .container .users__item {
   max-width: 320px;
@@ -132,26 +132,23 @@ button {
   font-weight: 700;
   text-align: center;
   margin: 18px 0 12px;
-  color: aliceblue;
+  color: orangered;
 }
 .container .users__age {
   font-size: 20px;
   font-weight: 600;
   text-align: center;
   margin-bottom: 20px;
-  color: aliceblue;
 }
 .container .users__city {
   text-align: center;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 40px;
-  color: aliceblue;
 }
 .container .users__website {
   font-size: 18px;
   text-align: center;
-  color: aliceblue;
 }
 .container .users-filter-contant {
   display: none;
@@ -186,6 +183,7 @@ button {
 .page .user__name {
   font-size: 22px;
   font-weight: 700;
+  color: orangered;
 }
 .page .user__city {
   font-size: 18px;
@@ -206,14 +204,14 @@ button {
   overflow: hidden;
   border-radius: 8px;
   margin: 15px;
-  box-shadow: 0px 0px 10px 3px rgba(150, 149, 149, 0.75);
 }
 .page .posts__link:hover {
-  box-shadow: 0px 0px 20px 1px rgba(73, 72, 72, 0.75);
+  box-shadow: 0px 0px 10px 1px orangered;
 }
 .page .posts__item {
   width: 450px;
   height: 450px;
+  background-color: rgb(16, 16, 16);
 }
 .page .posts__photo {
   width: 480px;
@@ -228,6 +226,7 @@ button {
   text-transform: capitalize;
   margin-bottom: 16px;
   text-align: center;
+  color: orangered;
 }
 .page .posts__description {
   font-size: 18px;
@@ -261,6 +260,7 @@ button {
   text-transform: capitalize;
   margin: 0 0 16px 16px;
   text-align: center;
+  color: orangered;
 }
 .comments-header .post__description {
   font-size: 18px;
@@ -276,6 +276,13 @@ button {
 .comments-main .comment {
   max-width: 1000px;
   margin: 0 auto 30px;
+  background-color: rgb(16, 16, 16);
+  padding: 6px;
+  border-radius: 6px;
+}
+.comments-main .comment:hover {
+  box-shadow: 0px 0px 5px 1px orangered;
+  cursor: pointer;
 }
 .comments-main .comment .user-email {
   font-size: 20px;
@@ -283,6 +290,7 @@ button {
   text-transform: capitalize;
   margin-bottom: 10px;
   font-weight: 700;
+  color: orangered;
 }
 .comments-main .comment .comment-text {
   font-size: 18px;
@@ -488,20 +496,31 @@ button {
   justify-items: center;
   width: 400px;
   height: 300px;
-  background: rgb(212, 222, 246);
+  background-color: rgb(26, 26, 26);
   border-radius: 20px;
 }
 .filter__title {
   font-size: 28px;
-}
-.filter__age h4 {
-  margin-bottom: 8px;
-  font-size: 18px;
-  font-weight: 500;
+  color: orangered;
 }
 .filter__age-input {
   height: 24px;
   width: 240px;
+  border: none;
+  border-bottom: 1px solid rgb(39, 39, 39);
+  background-color: rgb(26, 26, 26);
+}
+.filter__age-input::-moz-placeholder {
+  color: aliceblue;
+  font-size: 16px;
+}
+.filter__age-input:-ms-input-placeholder {
+  color: aliceblue;
+  font-size: 16px;
+}
+.filter__age-input::placeholder {
+  color: aliceblue;
+  font-size: 16px;
 }
 .filter .search-btn {
   height: 38px;
@@ -509,7 +528,7 @@ button {
   border-radius: 10px;
   border: none;
   color: aliceblue;
-  background: rgb(59, 128, 197);
+  background-color: orangered;
 }
 
 .filter_active {
@@ -531,7 +550,7 @@ button {
   justify-items: center;
   width: 340px;
   height: 440px;
-  background: rgb(85, 85, 85);
+  background-color: rgb(26, 26, 26);
 }
 .sign-in-form__description {
   text-align: center;
@@ -540,24 +559,22 @@ button {
 .sign-in-form__input {
   width: 240px;
   height: 36px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid rgb(170, 170, 170);
-  background-color: rgb(85, 85, 85);
+  border: none;
+  border-bottom: 1px solid rgb(39, 39, 39);
+  background-color: rgb(26, 26, 26);
   color: aliceblue;
 }
 .sign-in-form__input::-moz-placeholder {
   color: aliceblue;
-  font-size: 14px;
+  font-size: 16px;
 }
 .sign-in-form__input:-ms-input-placeholder {
   color: aliceblue;
-  font-size: 14px;
+  font-size: 16px;
 }
 .sign-in-form__input::placeholder {
   color: aliceblue;
-  font-size: 14px;
+  font-size: 16px;
 }
 .sign-in-form__btn {
   width: 200px;

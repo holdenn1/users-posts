@@ -12,7 +12,7 @@
 		justify-items: center;
 		width: 340px;
 		height: 440px;
-		background: rgb(85, 85, 85);
+		background-color: rgb(26, 26, 26);
 	}
 	&__description {
 		text-align: center;
@@ -21,18 +21,16 @@
 	&__input {
 		width: 240px;
 		height: 36px;
-		border-top: none;
-		border-left: none;
-		border-right: none;
-		border-bottom: 1px solid rgb(170, 170, 170);
-		background-color: rgb(85, 85, 85);
+		border: none;
+		border-bottom: 1px solid rgb(39, 39, 39);
+		background-color: rgb(26, 26, 26);
 		color: aliceblue;
-		&::placeholder{
+		&::placeholder {
 			color: aliceblue;
-			font-size: 14px;
+			font-size: 16px;
 		}
 	}
-	&__input_password{
+	&__input_password {
 		//background: ;
 	}
 	&__btn {
@@ -40,10 +38,11 @@
 		height: 40px;
 		border: none;
 		border-radius: 12px;
-		background-color: orangered;color: aliceblue;
+		background-color: orangered;
+		color: aliceblue;
 	}
 }
 
-.sign-in-form_active{
+.sign-in-form_active {
 	display: block;
 }
