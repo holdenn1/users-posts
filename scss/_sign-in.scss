@@ -1,0 +1,49 @@
+.sign-in-form {
+	position: fixed;
+	z-index: 50;
+	margin: 180px auto;
+	border-radius: 20px;
+	overflow: hidden;
+	display: none;
+	&__contant {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 0.5fr;
+		justify-items: center;
+		width: 340px;
+		height: 440px;
+		background: rgb(85, 85, 85);
+	}
+	&__description {
+		text-align: center;
+		color: aliceblue;
+	}
+	&__input {
+		width: 240px;
+		height: 36px;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		border-bottom: 1px solid rgb(170, 170, 170);
+		background-color: rgb(85, 85, 85);
+		color: aliceblue;
+		&::placeholder{
+			color: aliceblue;
+			font-size: 14px;
+		}
+	}
+	&__input_password{
+		//background: ;
+	}
+	&__btn {
+		width: 200px;
+		height: 40px;
+		border: none;
+		border-radius: 12px;
+		background-color: orangered;color: aliceblue;
+	}
+}
+
+.sign-in-form_active{
+	display: block;
+}

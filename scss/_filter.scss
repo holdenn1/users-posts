@@ -1,0 +1,45 @@
+.filter {
+	position: fixed;
+	z-index: 50;
+	overflow: hidden;
+	margin: 180px auto;
+	display: none;
+	&__contant {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 0.8fr 0.8fr 0.8fr;
+		align-items: center;
+		justify-items: center;
+		width: 400px;
+		height: 300px;
+		background: rgb(212, 222, 246);
+		border-radius: 20px;
+	}
+	&__title {
+		font-size: 28px;
+	}
+	&__age {
+		h4 {
+			margin-bottom: 8px;
+			font-size: 18px;
+			font-weight: 500;
+		}
+		&-input {
+			height: 24px;
+			width: 240px;
+		}
+	}
+	.search-btn {
+		height: 38px;
+		width: 180px;
+		border-radius: 10px;
+		border: none;
+		color: aliceblue;
+		background: rgb(59, 128, 197);
+	}
+}
+
+.filter_active {
+	display: block;
+}
+

@@ -3,8 +3,10 @@
 const users = document.querySelector('.users');
 const filterUsersContainer = document.querySelector('.users-filter-contant');
 const usersOnLoad = document.getElementsByClassName('users__link');
-const filter = document.querySelector('.filter');
 const searchBtn = document.querySelector('.search-btn');
+const filter = document.querySelector('.filter');
+const signInBtn = document.querySelector('.sign-in-btn');
+const signForm = document.querySelector('.sign-in-form ');
 const ageInput = document.querySelector('.filter__age-input');
 const spinner = document.querySelector('.lds-default');
 const contantSpinner = document.querySelector('.load-contant');
@@ -15,6 +17,8 @@ let observer;
 window.onload = () => {
 	loadUsers();
 	document.addEventListener('click', showFilter);
+	document.addEventListener('click', showSignInForm);
+
 	searchBtn.addEventListener('click', () => {
 		filter.classList.remove('filter_active');
 		searchUsers();
@@ -99,10 +103,20 @@ function showFilter() {
 	}
 }
 
+function showSignInForm() {
+	if (event.target.closest('.sign-in-btn')) {
+		signForm.classList.toggle('sign-in-form_active');
+	}
+	if (!event.target.closest('.sign-in-btn') && !event.target.closest('.sign-in-form')) {
+		signForm.classList.remove('sign-in-form_active');
+	}
+}
+
+
 async function searchUsers() {
 	try {
 		users.remove();
-		err.innerHTML = ''
+		err.innerHTML = '';
 		filterUsersContainer.style.display = 'flex';
 		filterUsersContainer.innerHTML = '';
 		const response = await fetch(`http://localhost:3000/users`);
@@ -110,7 +124,7 @@ async function searchUsers() {
 		const inputValue = +ageInput.value;
 		const findUsers = data.filter((data) => data.age == inputValue);
 		if (findUsers.length == 0) {
-			error()
+			error();
 		}
 		findUsers.forEach((element) => {
 			const {
@@ -148,7 +162,7 @@ async function searchUsers() {
 	} catch (error) {
 		console.error(error);
 		err.style.display = 'flex';
-		err.insertAdjacentHTML('afterbegin', `<h4 class="error-text">No users found</h4>`)
+		err.insertAdjacentHTML('afterbegin', `<h4 class="error-text">No users found</h4>`);
 	}
 }
 

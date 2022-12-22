@@ -2,6 +2,7 @@
 html,
 body {
   height: 100%;
+  background: black;
 }
 
 h1,
@@ -9,6 +10,7 @@ h3,
 h4,
 p,
 a,
+input,
 button {
   font-family: "Raleway", sans-serif;
   font-weight: normal;
@@ -65,6 +67,11 @@ button {
 }
 .header .filter-btn {
   cursor: pointer;
+  margin-right: 20px;
+}
+.header .sign-in-btn {
+  cursor: pointer;
+  height: 46px;
 }
 
 .footer {
@@ -97,16 +104,16 @@ button {
 }
 .container .users__link {
   margin: 20px;
-  box-shadow: 0px 0px 10px 3px rgba(150, 149, 149, 0.75);
   overflow: hidden;
   border-radius: 8px;
 }
 .container .users__link:hover {
-  box-shadow: 0px 0px 20px 1px rgba(73, 72, 72, 0.75);
+  box-shadow: 0px 0px 20px 1px orangered;
 }
 .container .users__item {
   max-width: 320px;
   height: 470px;
+  background-color: rgb(16, 16, 16);
 }
 .container .users__img {
   width: 280px;
@@ -125,22 +132,26 @@ button {
   font-weight: 700;
   text-align: center;
   margin: 18px 0 12px;
+  color: aliceblue;
 }
 .container .users__age {
   font-size: 20px;
   font-weight: 600;
   text-align: center;
   margin-bottom: 20px;
+  color: aliceblue;
 }
 .container .users__city {
   text-align: center;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 40px;
+  color: aliceblue;
 }
 .container .users__website {
   font-size: 18px;
   text-align: center;
+  color: aliceblue;
 }
 .container .users-filter-contant {
   display: none;
@@ -149,49 +160,6 @@ button {
   width: 100%;
   margin-bottom: 30px;
   margin-top: 70px;
-}
-
-.filter {
-  position: fixed;
-  z-index: 50;
-  overflow: hidden;
-  margin: 180px auto;
-  display: none;
-}
-.filter__contant {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.8fr 0.8fr 0.8fr;
-  align-items: center;
-  justify-items: center;
-  width: 400px;
-  height: 300px;
-  background: rgb(212, 222, 246);
-  border-radius: 20px;
-}
-.filter__title {
-  font-size: 28px;
-}
-.filter__age h4 {
-  margin-bottom: 8px;
-  font-size: 18px;
-  font-weight: 500;
-}
-.filter__age-input {
-  height: 24px;
-  width: 240px;
-}
-.filter .search-btn {
-  height: 38px;
-  width: 180px;
-  border-radius: 10px;
-  border: none;
-  color: aliceblue;
-  background: rgb(59, 128, 197);
-}
-
-.filter_active {
-  display: block;
 }
 
 .page {
@@ -505,6 +473,105 @@ button {
     height: 32px;
   }
 }
+.filter {
+  position: fixed;
+  z-index: 50;
+  overflow: hidden;
+  margin: 180px auto;
+  display: none;
+}
+.filter__contant {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.8fr 0.8fr 0.8fr;
+  align-items: center;
+  justify-items: center;
+  width: 400px;
+  height: 300px;
+  background: rgb(212, 222, 246);
+  border-radius: 20px;
+}
+.filter__title {
+  font-size: 28px;
+}
+.filter__age h4 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.filter__age-input {
+  height: 24px;
+  width: 240px;
+}
+.filter .search-btn {
+  height: 38px;
+  width: 180px;
+  border-radius: 10px;
+  border: none;
+  color: aliceblue;
+  background: rgb(59, 128, 197);
+}
+
+.filter_active {
+  display: block;
+}
+
+.sign-in-form {
+  position: fixed;
+  z-index: 50;
+  margin: 180px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  display: none;
+}
+.sign-in-form__contant {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 0.5fr;
+  justify-items: center;
+  width: 340px;
+  height: 440px;
+  background: rgb(85, 85, 85);
+}
+.sign-in-form__description {
+  text-align: center;
+  color: aliceblue;
+}
+.sign-in-form__input {
+  width: 240px;
+  height: 36px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgb(170, 170, 170);
+  background-color: rgb(85, 85, 85);
+  color: aliceblue;
+}
+.sign-in-form__input::-moz-placeholder {
+  color: aliceblue;
+  font-size: 14px;
+}
+.sign-in-form__input:-ms-input-placeholder {
+  color: aliceblue;
+  font-size: 14px;
+}
+.sign-in-form__input::placeholder {
+  color: aliceblue;
+  font-size: 14px;
+}
+.sign-in-form__btn {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  background-color: orangered;
+  color: aliceblue;
+}
+
+.sign-in-form_active {
+  display: block;
+}
+
 .error {
   display: none;
   justify-content: center;
