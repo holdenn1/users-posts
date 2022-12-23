@@ -1,7 +1,11 @@
 'use strict';
 
 const signInBtn = document.querySelector('.sign-in-btn');
-const signForm = document.querySelector('.sign-in-form ');
+const signForm = document.forms.signIn;
+const passwordInput = signForm.password;
+const emailInput = signForm.email;
+const continueBtn = signForm.continue;
+
 
 document.addEventListener('click', showSignInForm);
 
@@ -13,3 +17,4 @@ function showSignInForm() {
 		signForm.classList.remove('sign-in-form_active');
 	}
 }
+

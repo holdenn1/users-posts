@@ -11,6 +11,7 @@ h4,
 p,
 a,
 input,
+div,
 button {
   font-family: "Raleway", sans-serif;
   font-weight: normal;
@@ -108,7 +109,7 @@ button {
   border-radius: 8px;
 }
 .container .users__link:hover {
-  box-shadow: 0px 0px 10px 1px orangered;
+  box-shadow: 0px 0px 10px 1px rgb(10, 90, 170);
 }
 .container .users__item {
   max-width: 320px;
@@ -132,7 +133,7 @@ button {
   font-weight: 700;
   text-align: center;
   margin: 18px 0 12px;
-  color: orangered;
+  color: rgb(20, 160, 210);
 }
 .container .users__age {
   font-size: 20px;
@@ -183,7 +184,7 @@ button {
 .page .user__name {
   font-size: 22px;
   font-weight: 700;
-  color: orangered;
+  color: rgb(20, 160, 210);
 }
 .page .user__city {
   font-size: 18px;
@@ -206,7 +207,7 @@ button {
   margin: 15px;
 }
 .page .posts__link:hover {
-  box-shadow: 0px 0px 10px 1px orangered;
+  box-shadow: 0px 0px 10px 1px rgb(20, 160, 210);
 }
 .page .posts__item {
   width: 450px;
@@ -226,7 +227,7 @@ button {
   text-transform: capitalize;
   margin-bottom: 16px;
   text-align: center;
-  color: orangered;
+  color: rgb(20, 160, 210);
 }
 .page .posts__description {
   font-size: 18px;
@@ -260,7 +261,7 @@ button {
   text-transform: capitalize;
   margin: 0 0 16px 16px;
   text-align: center;
-  color: orangered;
+  color: rgb(20, 160, 210);
 }
 .comments-header .post__description {
   font-size: 18px;
@@ -281,7 +282,7 @@ button {
   border-radius: 6px;
 }
 .comments-main .comment:hover {
-  box-shadow: 0px 0px 5px 1px orangered;
+  box-shadow: 0px 0px 5px 1px rgb(20, 160, 210);
   cursor: pointer;
 }
 .comments-main .comment .user-email {
@@ -290,7 +291,7 @@ button {
   text-transform: capitalize;
   margin-bottom: 10px;
   font-weight: 700;
-  color: orangered;
+  color: rgb(20, 160, 210);
 }
 .comments-main .comment .comment-text {
   font-size: 18px;
@@ -501,7 +502,8 @@ button {
 }
 .filter__title {
   font-size: 28px;
-  color: orangered;
+  font-weight: 600;
+  color: rgb(20, 160, 210);
 }
 .filter__age-input {
   height: 24px;
@@ -528,7 +530,7 @@ button {
   border-radius: 10px;
   border: none;
   color: aliceblue;
-  background-color: orangered;
+  background-color: rgb(20, 160, 210);
 }
 
 .filter_active {
@@ -539,50 +541,174 @@ button {
   position: fixed;
   z-index: 50;
   margin: 180px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  display: none;
+  display: block;
 }
 .sign-in-form__contant {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 0.5fr;
-  justify-items: center;
-  width: 340px;
-  height: 440px;
+  border-radius: 20px;
+  width: 320px;
+  height: 460px;
   background-color: rgb(26, 26, 26);
 }
-.sign-in-form__description {
-  text-align: center;
-  color: aliceblue;
+.sign-in-form__item {
+  display: none;
 }
-.sign-in-form__input {
+.sign-in-form__item_active {
+  display: grid;
+}
+.sign-in-form-email {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 1fr;
+  justify-items: center;
+}
+.sign-in-form-email__img {
+  width: 150px;
+  height: 150px;
+  margin: 22px 0 10px;
+}
+.sign-in-form-email__description {
+  text-align: center;
+  color: rgb(20, 160, 210);
+  margin: auto;
+}
+.sign-in-form-email__email-input {
   width: 240px;
-  height: 36px;
+  height: 30px;
   border: none;
   border-bottom: 1px solid rgb(39, 39, 39);
   background-color: rgb(26, 26, 26);
   color: aliceblue;
+  margin: auto;
 }
-.sign-in-form__input::-moz-placeholder {
+.sign-in-form-email__email-input::-moz-placeholder {
   color: aliceblue;
-  font-size: 16px;
+  font-size: 14px;
 }
-.sign-in-form__input:-ms-input-placeholder {
+.sign-in-form-email__email-input:-ms-input-placeholder {
   color: aliceblue;
-  font-size: 16px;
+  font-size: 14px;
 }
-.sign-in-form__input::placeholder {
+.sign-in-form-email__email-input::placeholder {
   color: aliceblue;
-  font-size: 16px;
+  font-size: 14px;
 }
-.sign-in-form__btn {
+.sign-in-form-email__password-input {
+  width: 240px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid rgb(39, 39, 39);
+  background-color: rgb(26, 26, 26);
+  color: aliceblue;
+  margin: auto;
+}
+.sign-in-form-email__password-input::-moz-placeholder {
+  color: aliceblue;
+  font-size: 14px;
+}
+.sign-in-form-email__password-input:-ms-input-placeholder {
+  color: aliceblue;
+  font-size: 14px;
+}
+.sign-in-form-email__password-input::placeholder {
+  color: aliceblue;
+  font-size: 14px;
+}
+.sign-in-form-email__continue-btn {
   width: 200px;
   height: 40px;
-  border: none;
   border-radius: 12px;
-  background-color: orangered;
+  background-color: rgb(20, 160, 210);
   color: aliceblue;
+  border: none;
+  margin: auto;
+}
+.sign-in-form-acquaintance {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.2fr 0.25fr 0.25fr 0.25fr 0.25fr;
+  justify-items: center;
+}
+.sign-in-form-acquaintance__img {
+  width: 150px;
+  height: 150px;
+  margin: 22px 0 10px;
+}
+.sign-in-form-acquaintance__description {
+  text-align: center;
+  margin: auto;
+  color: rgb(20, 160, 210);
+  margin-bottom: 12px;
+}
+.sign-in-form-acquaintance__name-input {
+  width: 240px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid rgb(39, 39, 39);
+  background-color: rgb(26, 26, 26);
+  color: aliceblue;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.sign-in-form-acquaintance__name-input::-moz-placeholder {
+  color: aliceblue;
+  font-size: 14px;
+}
+.sign-in-form-acquaintance__name-input:-ms-input-placeholder {
+  color: aliceblue;
+  font-size: 14px;
+}
+.sign-in-form-acquaintance__name-input::placeholder {
+  color: aliceblue;
+  font-size: 14px;
+}
+.sign-in-form-acquaintance__gender-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 240px;
+  margin: 10px;
+}
+.sign-in-form-acquaintance__gender-buttons input[type=radio] {
+  display: none;
+}
+.sign-in-form-acquaintance__gender-buttons label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0px 15px;
+  line-height: 34px;
+  border: 1px solid rgb(134, 134, 134);
+  border-radius: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.sign-in-form-acquaintance__gender-buttons input[type=radio]:checked + label {
+  background: rgb(20, 160, 210);
+}
+.sign-in-form-acquaintance__gender-buttons-item label {
+  width: 60px;
+  text-align: center;
+}
+.sign-in-form-acquaintance__date {
+  color: aliceblue;
+  width: 200px;
+  height: 30px;
+  background: #333;
+  margin-bottom: 14px;
+}
+.sign-in-form-acquaintance__buttons {
+  width: 260px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.sign-in-form-acquaintance__buttons-prev {
+  background: none;
+  border: none;
+}
+.sign-in-form-acquaintance__buttons-next {
+  background: none;
+  border: none;
 }
 
 .sign-in-form_active {

@@ -2,44 +2,156 @@
 	position: fixed;
 	z-index: 50;
 	margin: 180px auto;
-	border-radius: 20px;
-	overflow: hidden;
-	display: none;
+	//overflow: hidden;
+	display: block;
+
 	&__contant {
+		border-radius: 20px;
+		width: 320px;
+		height: 460px;
+		background-color: rgb(26, 26, 26);
+	}
+
+	&__item {
+		display: none;
+	}
+	&__item_active {
+		display: grid;
+	}
+
+	&-email {
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 0.5fr;
+		grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 1fr;
 		justify-items: center;
-		width: 340px;
-		height: 440px;
-		background-color: rgb(26, 26, 26);
-	}
-	&__description {
-		text-align: center;
-		color: aliceblue;
-	}
-	&__input {
-		width: 240px;
-		height: 36px;
-		border: none;
-		border-bottom: 1px solid rgb(39, 39, 39);
-		background-color: rgb(26, 26, 26);
-		color: aliceblue;
-		&::placeholder {
+		&__img {
+			width: 150px;
+			height: 150px;
+			margin: 22px 0 10px;
+		}
+		&__description {
+			text-align: center;
+			color: rgb(20, 160, 210);
+			margin: auto;
+		}
+		&__email-input {
+			width: 240px;
+			height: 30px;
+			border: none;
+			border-bottom: 1px solid rgb(39, 39, 39);
+			background-color: rgb(26, 26, 26);
 			color: aliceblue;
-			font-size: 16px;
+			margin: auto;
+			&::placeholder {
+				color: aliceblue;
+				font-size: 14px;
+			}
+		}
+		&__password-input {
+			width: 240px;
+			height: 30px;
+			border: none;
+			border-bottom: 1px solid rgb(39, 39, 39);
+			background-color: rgb(26, 26, 26);
+			color: aliceblue;
+			margin: auto;
+			&::placeholder {
+				color: aliceblue;
+				font-size: 14px;
+			}
+		}
+		&__continue-btn {
+			width: 200px;
+			height: 40px;
+			border-radius: 12px;
+			background-color: rgb(20, 160, 210);
+			color: aliceblue;
+			border: none;
+			margin: auto;
 		}
 	}
-	&__input_password {
-		//background: ;
-	}
-	&__btn {
-		width: 200px;
-		height: 40px;
-		border: none;
-		border-radius: 12px;
-		background-color: orangered;
-		color: aliceblue;
+
+	&-acquaintance {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 0.2fr 0.25fr 0.25fr 0.25fr 0.25fr;
+		justify-items: center;
+		&__img {
+			width: 150px;
+			height: 150px;
+			margin: 22px 0 10px ;
+		}
+		&__description {
+			text-align: center;
+			margin: auto;
+			color: rgb(20, 160, 210);
+			margin-bottom: 12px;
+		}
+		&__name-input {
+			width: 240px;
+			height: 30px;
+			border: none;
+			border-bottom: 1px solid rgb(39, 39, 39);
+			background-color: rgb(26, 26, 26);
+			color: aliceblue;
+			margin: auto;
+			margin-bottom: 10px;
+			//align-items: start;
+			&::placeholder {
+				color: aliceblue;
+				font-size: 14px;
+			}
+		}
+		&__gender {
+			&-buttons {
+				display: flex;
+				justify-content: space-between;
+				width: 240px;
+				margin: 10px;
+				input[type="radio"] {
+					display: none;
+				}
+				label {
+					display: inline-block;
+					cursor: pointer;
+					padding: 0px 15px;
+					line-height: 34px;
+					border: 1px solid rgb(134, 134, 134);
+					border-radius: 10px;
+					user-select: none;
+				}
+				input[type="radio"]:checked + label {
+					background: rgb(20, 160, 210);
+				}
+				&-item {
+					label{
+						width: 60px;
+						text-align: center;
+					}
+				}
+			}
+		}
+		&__date{
+			color: aliceblue;
+			width: 200px;
+			height: 30px;
+			background: #333;
+			margin-bottom: 14px;
+		}
+		&__buttons {
+			width: 260px;
+			height: 40px;
+			display: flex;
+			justify-content: space-between;
+			&-prev {
+				background: none;
+				border: none;
+			}
+			&-next {
+				background: none;
+				border: none;
+			}
+		}
 	}
 }
 

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/holdenn1/users-posts/issues"
   },
-  "homepage": "https://github.com/holdenn1/users-posts#readme"
+  "homepage": "https://github.com/holdenn1/users-posts#readme",
+  "dependencies": {
+    
+  }
 }

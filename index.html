@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./css/resset.css" />
 		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 		<title>Document</title>
 	</head>
 	<body>
@@ -15,7 +16,7 @@
 					<h1><a class="header__title" href="./index.html">Users</a></h1>
 					<div class="header__icons">
 						<img class="filter-btn" src="./img/icons/filter.png" alt="" />
-						<img class="sign-in-btn" src="./img/icons/sign-in-64.png" alt="">
+						<img class="sign-in-btn" src="./img/icons/sign-in-64.png" alt="" />
 					</div>
 				</div>
 			</header>
@@ -30,15 +31,68 @@
 							<button class="search-btn">Search</button>
 						</div>
 					</div>
-					<form class="sign-in-form">
+					<form action="#" name="signIn" class="sign-in-form">
 						<div class="sign-in-form__contant">
-							<img src="" alt="" />
-							<p class="sign-in-form__description">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, provident?
-							</p>
-							<input class="sign-in-form__input" placeholder="Email" type="email" name="email"/>
-							<input class="sign-in-form__input sign-in__input_password" placeholder="Password" type="password" name="password"/>
-							<button class="sign-in-form__btn">Continue</button>
+							<div class="sign-in-form__item ">
+								<!-- sign-in-form__item_active -->
+								<div class="sign-in-form-email">
+									<img class="sign-in-form-email__img" src="" alt="" />
+									<p class="sign-in-form-email__description">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, provident?
+									</p>
+									<input
+										class="sign-in-form-email__email-input"
+										placeholder="Email"
+										type="email"
+										name="email"
+									/>
+									<input
+										class="sign-in-form-email__password-input"
+										placeholder="Password"
+										type="password"
+										name="password"
+									/>
+									<button type="button" class="sign-in-form-email__continue-btn">Continue</button>
+								</div>
+							</div>
+							<div class="sign-in-form__item sign-in-form__item_active">
+								<!-- sign-in-form__item_active -->
+								<div class="sign-in-form-acquaintance">
+									<img class="sign-in-form-acquaintance__img" src="" alt="" />
+									<p class="sign-in-form-acquaintance__description">Let's start acquaintance!</p>
+									<input
+										class="sign-in-form-acquaintance__name-input"
+										placeholder="Enter your name"
+										type="text"
+										name="name"
+									/>
+									<div class="sign-in-form-acquaintance__gender">
+										<p class="sign-in-form-acquaintance__description">Choose your gender</p>
+										<div class="sign-in-form-acquaintance__gender-buttons">
+											<div class="sign-in-form-acquaintance__gender-buttons-item">
+												<input id="gender-male" type="radio" name="radio" value="male" />
+												<label for="gender-male">Male</label>
+											</div>
+											<div class="sign-in-form-acquaintance__gender-buttons-item">
+												<input id="gender-female" type="radio" name="radio" value="female" />
+												<label for="gender-female">Female</label>
+											</div>
+										</div>
+									</div>
+									<div class="sign-in-form-acquaintance__dirth-year">
+										<p class="sign-in-form-acquaintance__description">Enter date of birth</p>
+										<input class="sign-in-form-acquaintance__date" type="date" />
+									</div>
+									<div class="sign-in-form-acquaintance__buttons">
+										<button type="button" class="sign-in-form-acquaintance__buttons-prev">
+											<img src="./img/icons/prev-icon.png" alt="" />
+										</button>
+										<button type="button" class="sign-in-form-acquaintance__buttons-next">
+											<img src="./img/icons/next-icon.png" alt="" />
+										</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</form>
 					<div class="users"></div>
@@ -69,7 +123,8 @@
 			</main>
 			<footer class="footer"></footer>
 		</div>
-		<script src="./js/signIn.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+		<script src="./js/sign-in.js"></script>
 		<script src="./js/filter.js"></script>
 		<script src="./js/index.js"></script>
 	</body>

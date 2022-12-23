@@ -19,7 +19,7 @@
 			text-transform: capitalize;
 			margin: 0 0 16px 16px;
 			text-align: center;
-			color: orangered;
+			color: rgb(20, 160, 210);
 		}
 		&__description {
 			font-size: 18px;
@@ -39,7 +39,7 @@
 		padding: 6px;
 		border-radius: 6px;
 		&:hover {
-			box-shadow: 0px 0px 5px 1px orangered;
+			box-shadow: 0px 0px 5px 1px rgb(20, 160, 210);
 			cursor: pointer;
 		}
 		.user-email {
@@ -48,7 +48,7 @@
 			text-transform: capitalize;
 			margin-bottom: 10px;
 			font-weight: 700;
-			color: orangered;
+			color: rgb(20, 160, 210);
 		}
 		.comment-text {
 			font-size: 18px;

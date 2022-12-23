@@ -17,7 +17,8 @@
 	}
 	&__title {
 		font-size: 28px;
-		color: orangered;
+		font-weight: 600;
+		color: rgb(20, 160, 210);
 	}
 	&__age {
 		&-input {
@@ -38,7 +39,7 @@
 		border-radius: 10px;
 		border: none;
 		color: aliceblue;
-		background-color: orangered;
+		background-color: rgb(20, 160, 210);
 	}
 }
 
