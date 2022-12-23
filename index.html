@@ -33,10 +33,10 @@
 					</div>
 					<form action="#" name="signIn" class="sign-in-form">
 						<div class="sign-in-form__contant">
-							<div class="sign-in-form__item ">
+							<div class="sign-in-form__item">
 								<!-- sign-in-form__item_active -->
 								<div class="sign-in-form-email">
-									<img class="sign-in-form-email__img" src="" alt="" />
+									<img class="sign-in-form__img" src="" alt="" />
 									<p class="sign-in-form-email__description">
 										Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, provident?
 									</p>
@@ -55,10 +55,10 @@
 									<button type="button" class="sign-in-form-email__continue-btn">Continue</button>
 								</div>
 							</div>
-							<div class="sign-in-form__item sign-in-form__item_active">
+							<div class="sign-in-form__item">
 								<!-- sign-in-form__item_active -->
 								<div class="sign-in-form-acquaintance">
-									<img class="sign-in-form-acquaintance__img" src="" alt="" />
+									<img class="sign-in-form__img" src="" alt="" />
 									<p class="sign-in-form-acquaintance__description">Let's start acquaintance!</p>
 									<input
 										class="sign-in-form-acquaintance__name-input"
@@ -70,11 +70,11 @@
 										<p class="sign-in-form-acquaintance__description">Choose your gender</p>
 										<div class="sign-in-form-acquaintance__gender-buttons">
 											<div class="sign-in-form-acquaintance__gender-buttons-item">
-												<input id="gender-male" type="radio" name="radio" value="male" />
+												<input id="gender-male" type="radio" name="gender" value="male" />
 												<label for="gender-male">Male</label>
 											</div>
 											<div class="sign-in-form-acquaintance__gender-buttons-item">
-												<input id="gender-female" type="radio" name="radio" value="female" />
+												<input id="gender-female" type="radio" name="gender" value="female" />
 												<label for="gender-female">Female</label>
 											</div>
 										</div>
@@ -83,6 +83,95 @@
 										<p class="sign-in-form-acquaintance__description">Enter date of birth</p>
 										<input class="sign-in-form-acquaintance__date" type="date" />
 									</div>
+									<div class="sign-in-form-acquaintance__buttons">
+										<button type="button" class="sign-in-form-acquaintance__buttons-prev">
+											<img src="./img/icons/prev-icon.png" alt="" />
+										</button>
+										<button type="button" class="sign-in-form-acquaintance__buttons-next">
+											<img src="./img/icons/next-icon.png" alt="" />
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="sign-in-form__item">
+								<!-- sign-in-form__item_active -->
+								<div class="sign-in-form-orientation">
+									<img class="sign-in-form__img" src="" alt="" />
+									<p class="sign-in-form-orientation__description">Chose your sexual orientation</p>
+									<div class="sign-in-form-orientation__list">
+										<div class="sign-in-form-orientation__item">
+											<input
+												id="orientation-hetero"
+												type="radio"
+												name="orientation"
+												value="heterosexual"
+											/>
+											<label for="orientation-hetero" class="orientation-radio-label"
+												>Heterosexual</label
+											>
+										</div>
+										<div class="sign-in-form-orientation__item">
+											<input
+												id="orientation-homo"
+												type="radio"
+												name="orientation"
+												value="homosexual"
+											/>
+											<label for="orientation-homo" class="orientation-radio-label"
+												>Homosexual</label
+											>
+										</div>
+										<div class="sign-in-form-orientation__item">
+											<input id="orientation-bi" type="radio" name="orientation" value="bisexual" />
+											<label for="orientation-bi" class="orientation-radio-label">Bisexual</label>
+										</div>
+										<div class="sign-in-form-orientation__item">
+											<input id="orientation-a" type="radio" name="orientation" value="asexual" />
+											<label for="orientation-a" class="orientation-radio-label">Asexual</label>
+										</div>
+									</div>
+									<div class="sign-in-form-acquaintance__buttons">
+										<button type="button" class="sign-in-form-acquaintance__buttons-prev">
+											<img src="./img/icons/prev-icon.png" alt="" />
+										</button>
+										<button type="button" class="sign-in-form-acquaintance__buttons-next">
+											<img src="./img/icons/next-icon.png" alt="" />
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="sign-in-form__item sign-in-form__item_active">
+								<!-- sign-in-form__item_active -->
+								<div class="sign-in-form-demands">
+									<img class="sign-in-form__img" src="" alt="" />
+									<p class="sign-in-form-demands__description">What are you looking for?</p>
+									<ul class="sign-in-form-demands__list">
+										<li>
+											<input type="checkbox" id="checkboxOne" value="Rainbow Dash" />
+											<label for="checkboxOne">Conversation</label>
+										</li>
+										<li>
+											<input type="checkbox" id="checkboxFour" value="Moondancer" />
+											<label for="checkboxFour">Flirt</label>
+										</li>
+										<li>
+											<input type="checkbox" id="checkboxTwo" value="Cotton Candy" />
+											<label for="checkboxTwo">Find friends</label>
+										</li>
+										<li>
+											<input type="checkbox" id="checkboxThree" value="Rarity" />
+											<label for="checkboxThree">Find love</label>
+										</li>
+										<li>
+											<input type="checkbox" id="checkboxFive" value="Surprise" />
+											<label for="checkboxFive">Go on a date</label>
+										</li>
+										<li>
+											<input type="checkbox" id="checkboxSix" value="Twilight Sparkle" />
+											<label for="checkboxSix">Hot talk</label>
+										</li>
+									</ul>
+
 									<div class="sign-in-form-acquaintance__buttons">
 										<button type="button" class="sign-in-form-acquaintance__buttons-prev">
 											<img src="./img/icons/prev-icon.png" alt="" />

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;0,600;0,700;1,400&display=swap");
 html,
 body {
@@ -11,6 +12,7 @@ h4,
 p,
 a,
 input,
+label,
 div,
 button {
   font-family: "Raleway", sans-serif;
@@ -555,16 +557,16 @@ button {
 .sign-in-form__item_active {
   display: grid;
 }
-.sign-in-form-email {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 1fr;
-  justify-items: center;
-}
-.sign-in-form-email__img {
+.sign-in-form__img {
   width: 150px;
   height: 150px;
   margin: 22px 0 10px;
+}
+.sign-in-form-email {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 0.75fr;
+  justify-items: center;
 }
 .sign-in-form-email__description {
   text-align: center;
@@ -625,13 +627,8 @@ button {
 .sign-in-form-acquaintance {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.2fr 0.25fr 0.25fr 0.25fr 0.25fr;
+  grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 0.25fr 0.4fr;
   justify-items: center;
-}
-.sign-in-form-acquaintance__img {
-  width: 150px;
-  height: 150px;
-  margin: 22px 0 10px;
 }
 .sign-in-form-acquaintance__description {
   text-align: center;
@@ -709,6 +706,114 @@ button {
 .sign-in-form-acquaintance__buttons-next {
   background: none;
   border: none;
+}
+.sign-in-form-orientation {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.2fr 1fr;
+  justify-items: center;
+}
+.sign-in-form-orientation__description {
+  color: rgb(20, 160, 210);
+}
+.sign-in-form-orientation__list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 220px;
+}
+.sign-in-form-orientation__item {
+  margin: 0.5rem;
+}
+.sign-in-form-orientation__item input[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+.sign-in-form-orientation__item input[type=radio] + .orientation-radio-label:before {
+  content: "";
+  background: #f4f4f4;
+  border-radius: 100%;
+  border: 1px solid #b4b4b4;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  position: relative;
+  top: -0.2em;
+  margin-right: 1em;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  transition: all 250ms ease;
+}
+.sign-in-form-orientation__item input[type=radio]:checked + .orientation-radio-label:before {
+  background-color: rgb(20, 160, 210);
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+}
+.sign-in-form-orientation__item input[type=radio]:focus + .orientation-radio-label:before {
+  outline: none;
+  border-color: rgb(20, 160, 210);
+}
+.sign-in-form-demands {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.25fr 0.9fr 0.3fr;
+}
+.sign-in-form-demands__description {
+  color: rgb(20, 160, 210);
+}
+.sign-in-form-demands__list {
+  width: 250px;
+}
+.sign-in-form-demands__list li {
+  display: inline;
+}
+.sign-in-form-demands__list li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #adadad;
+  border-radius: 25px;
+  white-space: nowrap;
+  margin: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.sign-in-form-demands__list li label::before {
+  content: "✔";
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 12px;
+  padding: 2px 6px 2px 2px;
+  transition: transform 0.3s ease-in-out;
+}
+.sign-in-form-demands__list li input[type=checkbox]:checked + label::before {
+  content: "✘";
+  transform: rotate(-360deg);
+  transition: transform 0.3s ease-in-out;
+}
+.sign-in-form-demands__list li input[type=checkbox]:checked + label {
+  background-color: rgb(20, 160, 210);
+  color: #fff;
+  transition: all 0.2s;
+}
+.sign-in-form-demands__list li input[type=checkbox] {
+  display: absolute;
+}
+.sign-in-form-demands__list li input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
 }
 
 .sign-in-form_active {
