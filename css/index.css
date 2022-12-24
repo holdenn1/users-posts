@@ -562,6 +562,29 @@ button {
   height: 150px;
   margin: 22px 0 10px;
 }
+.sign-up-form__continue-btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(20, 160, 210);
+  color: aliceblue;
+  border: none;
+  margin: auto;
+}
+.sign-up-form__buttons {
+  width: 260px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.sign-up-form__buttons-prev {
+  background: none;
+  border: none;
+}
+.sign-up-form__buttons-next {
+  background: none;
+  border: none;
+}
 .sign-up-form-email {
   display: grid;
   grid-template-columns: 1fr;
@@ -615,19 +638,10 @@ button {
   color: aliceblue;
   font-size: 14px;
 }
-.sign-up-form-email__continue-btn {
-  width: 200px;
-  height: 40px;
-  border-radius: 12px;
-  background-color: rgb(20, 160, 210);
-  color: aliceblue;
-  border: none;
-  margin: auto;
-}
 .sign-up-form-acquaintance {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 0.25fr 0.4fr;
+  grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 0.2fr 0.4fr;
   justify-items: center;
 }
 .sign-up-form-acquaintance__description {
@@ -644,7 +658,7 @@ button {
   background-color: rgb(26, 26, 26);
   color: aliceblue;
   margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 .sign-up-form-acquaintance__name-input::-moz-placeholder {
   color: aliceblue;
@@ -691,21 +705,7 @@ button {
   width: 200px;
   height: 30px;
   background: #333;
-  margin-bottom: 14px;
-}
-.sign-up-form-acquaintance__buttons {
-  width: 260px;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-}
-.sign-up-form-acquaintance__buttons-prev {
-  background: none;
-  border: none;
-}
-.sign-up-form-acquaintance__buttons-next {
-  background: none;
-  border: none;
+  margin-bottom: 10px;
 }
 .sign-up-form-orientation {
   display: grid;
