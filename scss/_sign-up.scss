@@ -1,0 +1,321 @@
+.sign-up-form {
+	position: fixed;
+	z-index: 50;
+	margin: 180px auto;
+	//overflow: hidden;
+	display: block;
+
+	&__contant {
+		border-radius: 20px;
+		width: 320px;
+		height: 460px;
+		background-color: rgb(26, 26, 26);
+	}
+
+	&__item {
+		display: none;
+	}
+	&__item_active {
+		display: grid;
+	}
+	&__img {
+		width: 150px;
+		height: 150px;
+		margin: 22px 0 10px;
+	}
+	&-email {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 0.75fr;
+		justify-items: center;
+
+		&__description {
+			text-align: center;
+			color: rgb(20, 160, 210);
+			margin: auto;
+		}
+		&__email-input {
+			width: 240px;
+			height: 30px;
+			border: none;
+			border-bottom: 1px solid rgb(39, 39, 39);
+			background-color: rgb(26, 26, 26);
+			color: aliceblue;
+			margin: auto;
+			&::placeholder {
+				color: aliceblue;
+				font-size: 14px;
+			}
+		}
+		&__password-input {
+			width: 240px;
+			height: 30px;
+			border: none;
+			border-bottom: 1px solid rgb(39, 39, 39);
+			background-color: rgb(26, 26, 26);
+			color: aliceblue;
+			margin: auto;
+			&::placeholder {
+				color: aliceblue;
+				font-size: 14px;
+			}
+		}
+		&__continue-btn {
+			width: 200px;
+			height: 40px;
+			border-radius: 12px;
+			background-color: rgb(20, 160, 210);
+			color: aliceblue;
+			border: none;
+			margin: auto;
+		}
+	}
+
+	&-acquaintance {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 0.25fr 0.25fr 0.25fr 0.25fr 0.4fr;
+		justify-items: center;
+		&__description {
+			text-align: center;
+			margin: auto;
+			color: rgb(20, 160, 210);
+			margin-bottom: 12px;
+		}
+		&__name-input {
+			width: 240px;
+			height: 30px;
+			border: none;
+			border-bottom: 1px solid rgb(39, 39, 39);
+			background-color: rgb(26, 26, 26);
+			color: aliceblue;
+			margin: auto;
+			margin-bottom: 10px;
+			//align-items: start;
+			&::placeholder {
+				color: aliceblue;
+				font-size: 14px;
+			}
+		}
+		&__gender {
+			&-buttons {
+				display: flex;
+				justify-content: space-between;
+				width: 240px;
+				margin: 10px;
+				input[type="radio"] {
+					display: none;
+				}
+				label {
+					display: inline-block;
+					cursor: pointer;
+					padding: 0px 15px;
+					line-height: 34px;
+					border: 1px solid rgb(134, 134, 134);
+					border-radius: 10px;
+					user-select: none;
+				}
+				input[type="radio"]:checked + label {
+					background: rgb(20, 160, 210);
+				}
+				&-item {
+					label {
+						width: 60px;
+						text-align: center;
+					}
+				}
+			}
+		}
+		&__date {
+			color: aliceblue;
+			width: 200px;
+			height: 30px;
+			background: #333;
+			margin-bottom: 14px;
+		}
+		&__buttons {
+			width: 260px;
+			height: 40px;
+			display: flex;
+			justify-content: space-between;
+			&-prev {
+				background: none;
+				border: none;
+			}
+			&-next {
+				background: none;
+				border: none;
+			}
+		}
+	}
+	&-orientation {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 0.2fr 1fr;
+		justify-items: center;
+		&__description {
+			color: rgb(20, 160, 210);
+		}
+		&__list {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			width: 220px;
+		}
+		&__item {
+			margin: 0.5rem;
+			input[type="radio"] {
+				position: absolute;
+				opacity: 0;
+				+ .orientation-radio-label {
+					&:before {
+						content: "";
+						background: #f4f4f4;
+						border-radius: 100%;
+						border: 1px solid darken(#f4f4f4, 25%);
+						display: inline-block;
+						width: 1.4em;
+						height: 1.4em;
+						position: relative;
+						top: -0.2em;
+						margin-right: 1em;
+						vertical-align: top;
+						cursor: pointer;
+						text-align: center;
+						transition: all 250ms ease;
+					}
+				}
+				&:checked {
+					+ .orientation-radio-label {
+						&:before {
+							background-color: rgb(20, 160, 210);
+							box-shadow: inset 0 0 0 4px #f4f4f4;
+						}
+					}
+				}
+				&:focus {
+					+ .orientation-radio-label {
+						&:before {
+							outline: none;
+							border-color: rgb(20, 160, 210);
+						}
+					}
+				}
+			}
+		}
+	}
+	&-demands {
+		display: grid;
+		justify-items: center;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 0.3fr 0.9fr 0.3fr;
+		&__description {
+			color: rgb(20, 160, 210);
+		}
+		&__list {
+			width: 250px;
+			li {
+				display: inline;
+				label {
+					display: inline-block;
+					background-color: rgba(255, 255, 255, 0.9);
+					color: #adadad;
+					border-radius: 25px;
+					white-space: nowrap;
+					margin: 5px;
+					-webkit-touch-callout: none;
+					-webkit-user-select: none;
+					-moz-user-select: none;
+					-ms-user-select: none;
+					user-select: none;
+					-webkit-tap-highlight-color: transparent;
+					transition: all 0.2s;
+					cursor: pointer;
+					padding: 4px 8px;
+					&::before {
+						content: "\2714";
+						display: inline-block;
+						font-style: normal;
+						font-variant: normal;
+						text-rendering: auto;
+						-webkit-font-smoothing: antialiased;
+						font-family: "Font Awesome 5 Free";
+						font-weight: 900;
+						font-size: 12px;
+						padding: 2px 6px 2px 2px;
+						transition: transform 0.3s ease-in-out;
+					}
+				}
+				input[type="checkbox"]:checked + label::before {
+					content: "\2718";
+					transform: rotate(-360deg);
+					transition: transform 0.3s ease-in-out;
+				}
+				input[type="checkbox"]:checked + label {
+					background-color: rgb(20, 160, 210);
+					color: #fff;
+					transition: all 0.2s;
+				}
+				input[type="checkbox"] {
+					display: absolute;
+				}
+				input[type="checkbox"] {
+					position: absolute;
+					opacity: 0;
+				}
+			}
+		}
+	}
+	&-avatar {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 0.25fr 0.9fr 0.2fr;
+		justify-items: center;
+		&__photo {
+			width: 150px;
+			height: 150px;
+			margin: 22px 0 10px;
+			object-fit: cover;
+			border-radius: 100%;
+		}
+		&__load-phodo {
+			position: relative;
+		}
+		&__photo-file {
+			width: 152px;
+			height: 152px;
+			opacity: 0;
+			border-radius: 100%;
+			position: absolute;
+			top: 22px;
+			left: 0;
+			cursor: pointer;
+			&::-webkit-file-upload-button {
+				display: none;
+			}
+		}
+		&__description {
+			color: rgb(20, 160, 210);
+		}
+		&__submit-btn {
+			width: 200px;
+			height: 40px;
+			border-radius: 12px;
+			background-color: rgb(20, 160, 210);
+			color: aliceblue;
+			border: none;
+			margin: auto;
+		}
+		&__buttons-prev {
+			background: none;
+			border: none;
+			position: absolute;
+			left: 10px;
+			top: 30px;
+		}
+	}
+}
+
+.sign-up-form_active {
+	display: block;
+}

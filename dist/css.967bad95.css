@@ -815,55 +815,6 @@ button {
   position: absolute;
   opacity: 0;
 }
-.sign-up-form-avatar {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 0.25fr 0.9fr 0.2fr;
-  justify-items: center;
-}
-.sign-up-form-avatar__photo {
-  width: 150px;
-  height: 150px;
-  margin: 22px 0 10px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 100%;
-}
-.sign-up-form-avatar__load-phodo {
-  position: relative;
-}
-.sign-up-form-avatar__photo-file {
-  width: 152px;
-  height: 152px;
-  opacity: 0;
-  border-radius: 100%;
-  position: absolute;
-  top: 22px;
-  left: 0;
-  cursor: pointer;
-}
-.sign-up-form-avatar__photo-file::-webkit-file-upload-button {
-  display: none;
-}
-.sign-up-form-avatar__description {
-  color: rgb(20, 160, 210);
-}
-.sign-up-form-avatar__submit-btn {
-  width: 200px;
-  height: 40px;
-  border-radius: 12px;
-  background-color: rgb(20, 160, 210);
-  color: aliceblue;
-  border: none;
-  margin: auto;
-}
-.sign-up-form-avatar__buttons-prev {
-  background: none;
-  border: none;
-  position: absolute;
-  left: 10px;
-  top: 30px;
-}
 
 .sign-up-form_active {
   display: block;
@@ -882,3 +833,5 @@ button {
   text-align: center;
   color: rgb(74, 72, 72);
 }
+
+/*# sourceMappingURL=/css.967bad95.css.map */
