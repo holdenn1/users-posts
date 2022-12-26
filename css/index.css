@@ -543,6 +543,7 @@ button {
   position: fixed;
   z-index: 50;
   margin: 180px auto;
+  overflow: hidden;
   display: block;
 }
 .sign-up-form__contant {

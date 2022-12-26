@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./css/resset.css" />
 		<link rel="stylesheet" href="./css/index.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 		<title>Document</title>
 	</head>
 	<body>
@@ -33,7 +32,7 @@
 					</div>
 					<form action="#" name="signUp" class="sign-up-form">
 						<div class="sign-up-form__contant">
-							<div class="sign-up-form__item ">
+							<div class="sign-up-form__item sign-up-form__item_active"> <!-- sign-up-form__item_active -->
 								<div class="sign-up-form-email">
 									<img class="sign-up-form__img" src="" alt="" />
 									<p class="sign-up-form-email__description">
@@ -51,10 +50,12 @@
 										type="password"
 										name="password"
 									/>
-									<button type="button" name="continue" class="sign-up-form__continue-btn">Continue</button>
+									<button type="button" name="continue" class="sign-up-form__continue-btn">
+										Continue
+									</button>
 								</div>
 							</div>
-							<div class="sign-up-form__item ">
+							<div class="sign-up-form__item">
 								<div class="sign-up-form-acquaintance">
 									<img class="sign-up-form__img" src="" alt="" />
 									<p class="sign-up-form-acquaintance__description">Let's start acquaintance!</p>
@@ -77,9 +78,9 @@
 											</div>
 										</div>
 									</div>
-									<div class="sign-up-form-acquaintance__dirth-year">
+									<div class="sign-up-form-acquaintance__birth-year">
 										<p class="sign-up-form-acquaintance__description">Enter date of birth</p>
-										<input class="sign-up-form-acquaintance__date" type="date" name="date"/>
+										<input class="sign-up-form-acquaintance__date" type="date" name="date" />
 									</div>
 									<div class="sign-up-form__buttons">
 										<button type="button" name="prev" class="sign-up-form__buttons-prev">
@@ -143,7 +144,12 @@
 									<p class="sign-up-form-demands__description">What are you looking for?</p>
 									<ul class="sign-up-form-demands__list">
 										<li>
-											<input type="checkbox" name="demands" id="conversation" value="conversation" />
+											<input
+												type="checkbox"
+												name="demands"
+												id="conversation"
+												value="conversation"
+											/>
 											<label for="conversation">Conversation</label>
 										</li>
 										<li>
@@ -151,7 +157,12 @@
 											<label for="flirt">Flirt</label>
 										</li>
 										<li>
-											<input type="checkbox" name="demands" id="find-friends" value="find-friends" />
+											<input
+												type="checkbox"
+												name="demands"
+												id="find-friends"
+												value="find-friends"
+											/>
 											<label for="find-friends">Find friends</label>
 										</li>
 										<li>
@@ -177,7 +188,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="sign-up-form__item ">
+							<div class="sign-up-form__item">
 								<div class="sign-up-form-avatar">
 									<div class="sign-up-form-avatar__load-phodo">
 										<img
@@ -186,16 +197,21 @@
 											src="./img/icons/avatar.webp"
 											alt=""
 										/>
-										<input id="avatar-file" name="photo-file" class="sign-up-form-avatar__photo-file" type="file" />
+										<input
+											id="avatar-file"
+											name="photo-file"
+											class="sign-up-form-avatar__photo-file"
+											type="file"
+										/>
 									</div>
 									<h3 class="sign-up-form-avatar__description">Upload your photo</h3>
-									<p class="sign-up-form-avatar__text">
-										The photo must contain only your face
-									</p>
+									<p class="sign-up-form-avatar__text">The photo must contain only your face</p>
 									<button type="button" name="prev" class="sign-up-form-avatar__buttons-prev">
 										<img src="./img/icons/prev-icon.png" alt="" />
 									</button>
-									<button type="submit" name="submit" class="sign-up-form-avatar__submit-btn">Sign Up</button>
+									<button type="submit" name="submit" class="sign-up-form-avatar__submit-btn">
+										Sign Up
+									</button>
 								</div>
 							</div>
 						</div>
@@ -228,7 +244,6 @@
 			</main>
 			<footer class="footer"></footer>
 		</div>
-		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 		<script src="./js/sign-up.js"></script>
 		<script src="./js/filter.js"></script>
 		<script src="./js/index.js"></script>
