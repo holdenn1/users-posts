@@ -11,7 +11,24 @@
 		height: 460px;
 		background-color: rgb(26, 26, 26);
 	}
-
+	&__error {
+		width: 260px;
+		height: 70px;
+		background-color: rgb(56, 56, 56);
+		color: red;
+		font-size: 14px;
+		font-family: "Raleway", sans-serif;
+		font-weight: normal;
+		border-radius: 18px;
+		position: absolute;
+		left: 30px;
+		top: -80px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		transition-duration: 0.4s;
+	}
 	&__item {
 		display: none;
 	}
@@ -22,6 +39,7 @@
 		width: 150px;
 		height: 150px;
 		margin: 22px 0 10px;
+		border-radius: 100%;
 	}
 	&__continue-btn {
 		width: 200px;
@@ -82,7 +100,6 @@
 				font-size: 14px;
 			}
 		}
-		
 	}
 
 	&-acquaintance {
@@ -317,4 +334,8 @@
 
 .sign-up-form_active {
 	display: block;
+}
+
+.invalid {
+	border-bottom: 1px solid red;
 }
