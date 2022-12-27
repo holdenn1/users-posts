@@ -4,15 +4,13 @@ const signUpBtn = document.querySelector('.sign-up-btn');
 const avatarImg = document.querySelector('#avatar');
 const avatarFile = document.querySelector('#avatar-file');
 const errMessage = document.querySelector('.sign-up-form__error');
-const formItemCounts = [...document.getElementsByClassName('sign-up-form__item')];
+const formItems = [...document.getElementsByClassName('sign-up-form__item')];
 
 const mainForm = document.forms.signUp;
 const emailInput = mainForm.email;
 const passwordInput = mainForm.password;
 const nameInput = mainForm.name;
-console.log(nameInput);
 
-let formItemCount = 0;
 window.addEventListener('load', () => {
 	document.addEventListener('click', showsignUpForm);
 	avatarFile.addEventListener('change', loadAvatar);
@@ -22,50 +20,58 @@ window.addEventListener('load', () => {
 	});
 });
 
+let formItemCount = 0;
+const validateForm = [
+	[
+		{
+			validateId: 'emailInput',
+			validate: () => {
+				if (!checkEmail(emailInput)) {
+					emailInput.classList.add('invalid');
+					errMessage.textContent = emailInput.value ? 'Email is invalid' : 'Email is requred field';
+					errMessage.style.top = '10px';
+					setTimeout(() => {
+						errMessage.style.top = '-70px';
+					}, 3000);
+					return false;
+				}
+				return true;
+			},
+		},
+		{
+			validateId: 'passwordInput',
+			validate: () => {
+				if (!checkPassword(passwordInput)) {
+					passwordInput.classList.add('invalid');
+					errMessage.textContent = passwordInput.value
+						? 'Password must contain at least 6 characters, at least one letter, one number and one special character'
+						: 'Password is requred field';
+					errMessage.style.top = '10px';
+					setTimeout(() => {
+						errMessage.style.top = '-70px';
+					}, 3000);
+					return false;
+				}
+				return true;
+			},
+		},
+	],
+	[
+		{ validateId: 'nameInput', validate: () => console.log('Hi3!') },
+		{ validateId: 'ganderChoose', validate: () => console.log('Hi4!') },
+		{ validateId: 'birthDate', validate: () => console.log('Hi5!') },
+	],
+	[{ validateId: 'orientationChoose', validate: () => console.log('Hi6!') }],
+	[{ validateId: 'demandsChoode', validate: () => console.log('Hi6!') }],
+	[{ validateId: 'uploadPhoto', validate: () => console.log('Hi6!') }],
+];
+
 function sliderNavigation() {
 	if (
 		event.target.closest('.sign-up-form__continue-btn') ||
 		event.target.closest('.sign-up-form__buttons-next')
 	) {
-		if (emailInput.value === '') {
-			emailInput.classList.add('invalid');
-			errMessage.textContent = 'Email is requred field';
-			errMessage.style.top = '10px';
-			setTimeout(() => {
-				errMessage.style.top = '-70px';
-			}, 3000);
-			return;
-		} else {
-			emailInput.classList.remove('invalid');
-			errMessage.textContent = '';
-			errMessage.style.top = '-70px';
-		}
-		if (!checkEmail(emailInput)) {
-			emailInput.classList.add('invalid');
-			errMessage.textContent = 'Email is invalid';
-			errMessage.style.top = '10px';
-			setTimeout(() => {
-				errMessage.style.top = '-70px';
-			}, 3000);
-			return;
-		} else {
-			emailInput.classList.remove('invalid');
-			errMessage.textContent = '';
-			errMessage.style.top = '-70px';
-		}
-		if (!checkPassword(passwordInput)) {
-			passwordInput.classList.add('invalid');
-			errMessage.textContent =
-				'Password must contain at least one letter, one number and one special character';
-			errMessage.style.top = '10px';
-			setTimeout(() => {
-				errMessage.style.top = '-70px';
-			}, 3000);
-			return;
-		} else {
-			passwordInput.classList.remove('invalid');
-			errMessage.textContent = '';
-			errMessage.style.top = '-70px';
+		if (test()) {
 			formItemCount++;
 		}
 	} else if (
@@ -76,9 +82,16 @@ function sliderNavigation() {
 	}
 }
 
+const validateArr = validateForm[formItemCount];
+
+function test() {
+	let checkValue = validateArr.every((i) => i.validate());
+	return checkValue;
+}
+
 /* regular expression on cheks */
 function checkOnEmptyRow(name) {
-	return /^\s*$/.test(name.va);
+	return /^\s*$/.test(name.value);
 }
 
 function checkEmail(email) {
@@ -88,7 +101,7 @@ function checkEmail(email) {
 }
 
 function checkPassword(pass) {
-	return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(pass.value);
+	return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/.test(pass.value);
 }
 
 /* Check email and passworn on focus */
@@ -124,11 +137,11 @@ passwordInput.addEventListener('input', () => {
 });
 //=========================================================================================
 function showCurrentItem() {
-	formItemCounts.forEach((item) => {
+	formItems.forEach((item) => {
 		item.classList.contains('sign-up-form__item_active') &&
 			item.classList.remove('sign-up-form__item_active');
 	});
-	formItemCounts[formItemCount].classList.add('sign-up-form__item_active');
+	formItems[formItemCount].classList.add('sign-up-form__item_active');
 }
 
 function showsignUpForm() {
