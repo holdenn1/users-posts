@@ -33,7 +33,7 @@ async function loadPost() {
 						class="post__photo"
 						src="${photo}"
 						alt=""/>
-					<div>
+					<div class="post__text-content">
 					<h3 class="post__title">${title}</h3>
 					<p class="post__description">${body}</p>
 					</div>

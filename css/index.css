@@ -47,7 +47,7 @@ button {
 
 .header {
   width: 100%;
-  min-height: 70px;
+  height: 70px;
   background-color: rgb(0, 102, 255);
   display: flex;
   justify-content: center;
@@ -56,6 +56,7 @@ button {
   top: 0;
   left: 0;
   z-index: 100;
+  overflow: hidden;
 }
 .header__contant {
   display: flex;
@@ -63,6 +64,11 @@ button {
   align-items: center;
   margin: 0 70px;
   width: 1400px;
+}
+@media screen and (max-width: 480px) {
+  .header__contant {
+    margin: 0 20px;
+  }
 }
 .header__title {
   font-size: 38px;
@@ -106,6 +112,9 @@ button {
   margin-top: 70px;
 }
 .container .users__link {
+  max-width: 280px;
+  height: 460px;
+  background-color: rgb(16, 16, 16);
   margin: 20px;
   overflow: hidden;
   border-radius: 8px;
@@ -113,14 +122,10 @@ button {
 .container .users__link:hover {
   box-shadow: 0px 0px 10px 1px rgb(10, 90, 170);
 }
-.container .users__item {
-  max-width: 320px;
-  height: 470px;
-  background-color: rgb(16, 16, 16);
-}
 .container .users__img {
-  width: 280px;
-  height: 280px;
+  width: 100%;
+  max-width: 280px;
+  max-height: 280px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -174,6 +179,16 @@ button {
   width: 480px;
   display: flex;
 }
+@media screen and (max-width: 580px) {
+  .page .user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    margin: 60px auto;
+    width: 260px;
+  }
+}
 .page .user .avatar {
   max-width: 230px;
   max-height: 230px;
@@ -182,6 +197,12 @@ button {
   height: 230px;
   margin-top: 30px;
   margin-left: 40px;
+}
+@media screen and (max-width: 580px) {
+  .page .user__description {
+    text-align: center;
+    margin: 30px auto;
+  }
 }
 .page .user__name {
   font-size: 22px;
@@ -204,6 +225,9 @@ button {
   margin-bottom: 30px;
 }
 .page .posts__link {
+  max-width: 450px;
+  height: 450px;
+  background-color: rgb(16, 16, 16);
   overflow: hidden;
   border-radius: 8px;
   margin: 15px;
@@ -211,14 +235,16 @@ button {
 .page .posts__link:hover {
   box-shadow: 0px 0px 10px 1px rgb(20, 160, 210);
 }
-.page .posts__item {
-  width: 450px;
-  height: 450px;
-  background-color: rgb(16, 16, 16);
+@media screen and (max-width: 480px) {
+  .page .posts__link {
+    min-height: 486px;
+  }
 }
 .page .posts__photo {
-  width: 480px;
-  height: 260px;
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
+  max-height: 260px;
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 14px;
@@ -243,19 +269,35 @@ button {
   width: 100%;
   margin-bottom: 80px;
 }
+@media screen and (max-width: 490px) {
+  .comments-header {
+    margin-bottom: 40px;
+  }
+}
 .comments-header .post {
-  max-height: 270px;
   margin: 100px 40px 40px 40px;
+  overflow: hidden;
 }
 .comments-header .post__item {
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 880px) {
+  .comments-header .post__item {
+    flex-direction: column;
+  }
+}
 .comments-header .post__photo {
+  width: 100%;
   max-width: 360px;
-  height: 270px;
+  max-height: 270px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media screen and (max-width: 880px) {
+  .comments-header .post__text-content {
+    margin-top: 60px;
+  }
 }
 .comments-header .post__title {
   font-size: 20px;
@@ -265,12 +307,29 @@ button {
   text-align: center;
   color: rgb(20, 160, 210);
 }
+@media screen and (max-width: 880px) {
+  .comments-header .post__title {
+    margin: 0 auto 16px;
+    text-align: center;
+  }
+}
 .comments-header .post__description {
   font-size: 18px;
   line-height: 140%;
   text-transform: capitalize;
   text-align: center;
   margin: 0 50px;
+}
+@media screen and (max-width: 880px) {
+  .comments-header .post__description {
+    text-align: center;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 490px) {
+  .comments-header .post__description {
+    font-size: 16px;
+  }
 }
 
 .comments-main {
@@ -295,10 +354,20 @@ button {
   font-weight: 700;
   color: rgb(20, 160, 210);
 }
+@media screen and (max-width: 490px) {
+  .comments-main .comment .user-email {
+    font-size: 18px;
+  }
+}
 .comments-main .comment .comment-text {
   font-size: 18px;
   line-height: 140%;
   text-transform: capitalize;
+}
+@media screen and (max-width: 490px) {
+  .comments-main .comment .comment-text {
+    font-size: 16px;
+  }
 }
 
 .lds-default {

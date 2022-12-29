@@ -1,17 +1,30 @@
 .comments-header {
 	width: 100%;
 	margin-bottom: 80px;
+	@media screen and (max-width: 490px) {
+		margin-bottom: 40px;
+	}
 	.post {
-		max-height: 270px;
 		margin: 100px 40px 40px 40px;
+		overflow: hidden;
 		&__item {
 			display: flex;
 			align-items: center;
+			@media screen and (max-width: 880px) {
+				flex-direction: column;
+			}
 		}
 		&__photo {
+			width: 100%;
 			max-width: 360px;
-			height: 270px;
+			max-height: 270px;
 			object-fit: cover;
+		}
+		&__text-content {
+			@media screen and (max-width: 880px) {
+				margin-top: 60px;
+			}
+			
 		}
 		&__title {
 			font-size: 20px;
@@ -20,6 +33,11 @@
 			margin: 0 0 16px 16px;
 			text-align: center;
 			color: rgb(20, 160, 210);
+			@media screen and (max-width: 880px) {
+				margin: 0 auto 16px;
+				text-align: center;
+			}
+			
 		}
 		&__description {
 			font-size: 18px;
@@ -27,6 +45,13 @@
 			text-transform: capitalize;
 			text-align: center;
 			margin: 0 50px;
+			@media screen and (max-width: 880px) {
+				text-align: center;
+				margin: 0;
+			}
+			@media screen and (max-width: 490px) {
+				font-size: 16px;
+			}
 		}
 	}
 }
@@ -49,11 +74,17 @@
 			margin-bottom: 10px;
 			font-weight: 700;
 			color: rgb(20, 160, 210);
+			@media screen and (max-width: 490px) {
+				font-size: 18px;
+			}
 		}
 		.comment-text {
 			font-size: 18px;
 			line-height: 140%;
 			text-transform: capitalize;
+			@media screen and (max-width: 490px) {
+				font-size: 16px;
+			}
 		}
 	}
 }
