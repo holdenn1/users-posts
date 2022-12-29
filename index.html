@@ -77,7 +77,11 @@
 									</div>
 									<div class="sign-up-form-acquaintance__birth-year">
 										<p class="sign-up-form-acquaintance__description">Enter date of birth</p>
-										<input class="sign-up-form-acquaintance__date" type="date" name="date" />
+										<input
+											class="sign-up-form-acquaintance__date"
+											type="date"
+											name="birthDate"
+										/>
 									</div>
 									<div class="sign-up-form__buttons">
 										<button type="button" class="sign-up-form__buttons-prev">
@@ -141,27 +145,27 @@
 									<p class="sign-up-form-demands__description">What are you looking for?</p>
 									<ul class="sign-up-form-demands__list">
 										<li>
-											<input type="checkbox" id="conversation" value="conversation" />
+											<input type="checkbox" name="demand" id="conversation" value="conversation" />
 											<label for="conversation">Conversation</label>
 										</li>
 										<li>
-											<input type="checkbox" id="flirt" value="flirt" />
+											<input type="checkbox" name="demand" id="flirt" value="flirt" />
 											<label for="flirt">Flirt</label>
 										</li>
 										<li>
-											<input type="checkbox" id="find-friends" value="find-friends" />
+											<input type="checkbox" name="demand" id="find-friends" value="find-friends" />
 											<label for="find-friends">Find friends</label>
 										</li>
 										<li>
-											<input type="checkbox" id="find-love" value="find-love" />
+											<input type="checkbox" name="demand" id="find-love" value="find-love" />
 											<label for="find-love">Find love</label>
 										</li>
 										<li>
-											<input type="checkbox" id="date" value="date" />
+											<input type="checkbox" name="demand" id="date" value="date" />
 											<label for="date">Go on a date</label>
 										</li>
 										<li>
-											<input type="checkbox" id="talk" value="talk" />
+											<input type="checkbox" name="demand" id="talk" value="talk" />
 											<label for="talk">Hot talk</label>
 										</li>
 									</ul>
@@ -186,7 +190,7 @@
 										/>
 										<input
 											id="avatar-file"
-											name="photo-file"
+											name="photoFile"
 											class="sign-up-form-avatar__photo-file"
 											type="file"
 										/>
@@ -196,7 +200,7 @@
 									<button type="button" class="sign-up-form-avatar__buttons-prev">
 										<img src="./img/icons/prev-icon.png" alt="" />
 									</button>
-									<button type="submit" name="submit" class="sign-up-form-avatar__submit-btn">
+									<button type="button" name="submit" class="sign-up-form-avatar__submit-btn">
 										Sign Up
 									</button>
 								</div>

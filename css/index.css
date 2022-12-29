@@ -544,7 +544,7 @@ button {
   z-index: 50;
   margin: 180px auto;
   overflow: hidden;
-  display: block;
+  display: none;
 }
 .sign-up-form__contant {
   border-radius: 20px;
@@ -568,6 +568,7 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
+  z-index: 100;
   transition-duration: 0.4s;
 }
 .sign-up-form__item {

@@ -3,7 +3,7 @@
 	z-index: 50;
 	margin: 180px auto;
 	overflow: hidden;
-	display: block;
+	display: none;
 
 	&__contant {
 		border-radius: 20px;
@@ -27,6 +27,7 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
+		z-index: 100;
 		transition-duration: 0.4s;
 	}
 	&__item {
