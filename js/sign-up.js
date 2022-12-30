@@ -31,8 +31,9 @@ window.addEventListener('load', () => {
 	submitBtn.addEventListener('click', () => {
 		if (validateArr[4][0].validate()) {
 			findLocation();
-			console.log(userInfo);
 			mainForm.classList.remove('sign-up-form_active');
+			formItemCount = 0;
+			clearForm();
 		}
 	});
 });
@@ -223,6 +224,27 @@ function findLocation() {
 				userInfo.address = data;
 			});
 	});
+}
+
+function clearForm() {
+	emailInput.value = '';
+	passwordInput.value = '';
+	nameInput.value = '';
+	ganderChoose[0].checked = false;
+	ganderChoose[1].checked = false;
+	birthDateChoose.value = '';
+	orientationChoose[0].checked = false;
+	orientationChoose[1].checked = false;
+	orientationChoose[2].checked = false;
+	orientationChoose[3].checked = false;
+	demandsChoose[0].checked = false;
+	demandsChoose[1].checked = false;
+	demandsChoose[2].checked = false;
+	demandsChoose[3].checked = false;
+	demandsChoose[4].checked = false;
+	demandsChoose[5].checked = false;
+	avatarImg.src = './img/icons/avatar.webp';
+	photoFile.value = '';
 }
 
 /* check function on cheks */

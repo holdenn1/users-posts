@@ -112,7 +112,7 @@ button {
   margin-top: 70px;
 }
 .container .users__link {
-  max-width: 280px;
+  width: 280px;
   height: 460px;
   background-color: rgb(16, 16, 16);
   margin: 20px;
