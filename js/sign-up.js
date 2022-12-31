@@ -19,7 +19,7 @@ const submitBtn = mainForm.submit;
 
 let formItemCount = 0;
 let userInfo = {};
-let demandsAarr = [];
+
 
 window.addEventListener('load', () => {
 	document.addEventListener('click', showsignUpForm);
@@ -29,16 +29,15 @@ window.addEventListener('load', () => {
 		showCurrentItem();
 	});
 	submitBtn.addEventListener('click', () => {
-		if (validateArr[4][0].validate()) {
-			findLocation();
+		if (validateArr[validateArr.length - 1][0].validate()) {
+			setLocation();
+			console.log(userInfo);
 			mainForm.classList.remove('sign-up-form_active');
 			formItemCount = 0;
 			clearForm();
 		}
 	});
 });
-
-/*valdate form items*/
 
 const validateArr = [
 	[
@@ -47,11 +46,7 @@ const validateArr = [
 			validate: () => {
 				if (!checkEmail(emailInput)) {
 					emailInput.classList.add('invalid');
-					errMessage.textContent = emailInput.value ? 'Email is invalid' : 'Email is requred field';
-					errMessage.style.top = '10px';
-					setTimeout(() => {
-						errMessage.style.top = '-70px';
-					}, 3000);
+					showErrorMassage('Email is invalid', 'Email is requred field');
 					return false;
 				}
 				userInfo.email = emailInput.value;
@@ -63,13 +58,9 @@ const validateArr = [
 			validate: () => {
 				if (!checkPassword(passwordInput)) {
 					passwordInput.classList.add('invalid');
-					errMessage.textContent = passwordInput.value
-						? 'Password must contain at least six characters, at least one letter, one number and one special character'
-						: 'Password is requred field';
-					errMessage.style.top = '10px';
-					setTimeout(() => {
-						errMessage.style.top = '-70px';
-					}, 3000);
+					showErrorMassage(
+						'Password must contain at least six characters, at least one letter, one number and one special character',
+					);
 					return false;
 				}
 				userInfo.password = passwordInput.value;
@@ -83,11 +74,7 @@ const validateArr = [
 			validate: () => {
 				if (checkOnEmptyRow(nameInput)) {
 					nameInput.classList.add('invalid');
-					errMessage.textContent = 'Name is requred field';
-					errMessage.style.top = '10px';
-					setTimeout(() => {
-						errMessage.style.top = '-70px';
-					}, 3000);
+					showErrorMassage('Name is requred field');
 					return false;
 				}
 				userInfo.name = nameInput.value;
@@ -98,11 +85,7 @@ const validateArr = [
 			validateId: 'ganderChoose',
 			validate: () => {
 				if (ganderChoose.value == '') {
-					errMessage.textContent = 'Choose your gender please, this is requred field';
-					errMessage.style.top = '10px';
-					setTimeout(() => {
-						errMessage.style.top = '-70px';
-					}, 3000);
+					showErrorMassage('Choose your gender please, this is requred field');
 					return false;
 				}
 				userInfo.gander = ganderChoose.value;
@@ -113,19 +96,11 @@ const validateArr = [
 			validateId: 'birthDate',
 			validate: () => {
 				if (birthDateChoose.value == '') {
-					errMessage.textContent = 'Please indicate your birthday';
-					errMessage.style.top = '10px';
-					setTimeout(() => {
-						errMessage.style.top = '-70px';
-					}, 3000);
+					showErrorMassage('Please indicate your birthday');
 					return false;
 				}
-				if (birthDateChoose.value > '2016-01-01') {
-					errMessage.textContent = 'You cannot be younger than six years old';
-					errMessage.style.top = '10px';
-					setTimeout(() => {
-						errMessage.style.top = '-70px';
-					}, 3000);
+				if (birthDateChoose.value > subtractYears(6)) {
+					showErrorMassage('You cannot be younger than six years old');
 					return false;
 				}
 				userInfo.birth = birthDateChoose.value;
@@ -138,11 +113,7 @@ const validateArr = [
 			validateId: 'orientationChoose',
 			validate: () => {
 				if (orientationChoose.value == '') {
-					errMessage.textContent = 'This field is required';
-					errMessage.style.top = '10px';
-					setTimeout(() => {
-						errMessage.style.top = '-70px';
-					}, 3000);
+					showErrorMassage('This field is required');
 					return false;
 				}
 				userInfo.orientation = orientationChoose.value;
@@ -155,15 +126,10 @@ const validateArr = [
 			validateId: 'demandsChoode',
 			validate: () => {
 				if (findDemand().length < 1) {
-					errMessage.textContent = 'You must choose at least one demand';
-					errMessage.style.top = '10px';
-					setTimeout(() => {
-						errMessage.style.top = '-70px';
-					}, 3000);
+					showErrorMassage('You must choose at least one demand');
 					return false;
 				}
-				findDemand().forEach((i) => demandsAarr.push(i.id));
-				userInfo.demands = demandsAarr;
+				userInfo.demands = findDemand().map((i) => i.id);
 				return true;
 			},
 		},
@@ -173,11 +139,7 @@ const validateArr = [
 			validateId: 'uploadPhoto',
 			validate: () => {
 				if (photoFile.value == '') {
-					errMessage.textContent = 'Upload photo';
-					errMessage.style.top = '10px';
-					setTimeout(() => {
-						errMessage.style.top = '-70px';
-					}, 3000);
+					showErrorMassage('Upload photo');
 					return false;
 				}
 				userInfo.photo = photoFile.value;
@@ -194,7 +156,6 @@ function sliderNavigation() {
 	) {
 		if (validateForm(formItemCount)) {
 			formItemCount++;
-			console.log(formItemCount);
 		}
 	} else if (
 		event.target.closest('.sign-up-form__buttons-prev') ||
@@ -210,7 +171,7 @@ function validateForm(index) {
 	return checkValue;
 }
 
-function findLocation() {
+function setLocation() {
 	navigator.geolocation.getCurrentPosition((position) => {
 		let lat = position.coords.latitude;
 		let long = position.coords.longitude;
@@ -245,6 +206,22 @@ function clearForm() {
 	demandsChoose[5].checked = false;
 	avatarImg.src = './img/icons/avatar.webp';
 	photoFile.value = '';
+}
+
+function showErrorMassage(text1, text2) {
+	errMessage.textContent = emailInput.value ? text1 : text2;
+	errMessage.style.top = '10px';
+	setTimeout(() => {
+		errMessage.style.top = '-70px';
+	}, 3000);
+}
+
+function subtractYears(numOfYears, date = new Date()) {
+	date.setFullYear(date.getFullYear() - numOfYears);
+	let month = date.getUTCMonth() + 1;
+	let day = date.getUTCDate();
+	let year = date.getUTCFullYear();
+	return year + '-' + month + '-' + day;
 }
 
 /* check function on cheks */
@@ -315,8 +292,9 @@ nameInput.addEventListener('input', () => {
 //=========================================================================================
 function showCurrentItem() {
 	formItems.forEach((item) => {
-		item.classList.contains('sign-up-form__item_active') &&
+		if (item.classList.contains('sign-up-form__item_active')) {
 			item.classList.remove('sign-up-form__item_active');
+		}
 	});
 	formItems[formItemCount].classList.add('sign-up-form__item_active');
 }
