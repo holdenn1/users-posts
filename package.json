@@ -1,17 +1,16 @@
 {
-  "name": "posts",
+  "name": "users-posts",
   "version": "1.0.0",
   "description": "",
-  "main": ".prettierrc.js",
+  "main": "./js/index.js",
+	"type": "module",
   "scripts": {
-    "app": "parcel index.html",
-    "serv": "json-server --watch db.json"
+    "serv": "json-server --watch ./src/assets/db.json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/holdenn1/users-posts.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -19,7 +18,6 @@
   },
   "homepage": "https://github.com/holdenn1/users-posts#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "webpack": "^5.75.0"
   }
 }
-

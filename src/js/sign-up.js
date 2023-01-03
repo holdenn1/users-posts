@@ -20,7 +20,6 @@ const submitBtn = mainForm.submit;
 let formItemCount = 0;
 let userInfo = {};
 
-
 window.addEventListener('load', () => {
 	document.addEventListener('click', showsignUpForm);
 	avatarFile.addEventListener('change', loadAvatar);
@@ -204,7 +203,7 @@ function clearForm() {
 	demandsChoose[3].checked = false;
 	demandsChoose[4].checked = false;
 	demandsChoose[5].checked = false;
-	avatarImg.src = './img/icons/avatar.webp';
+	avatarImg.src = './assets/img/icons/avatar.webp';
 	photoFile.value = '';
 }
 

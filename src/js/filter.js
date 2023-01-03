@@ -1,7 +1,10 @@
 'use strict';
 
+const filterUsersContainer = document.querySelector('.users-filter-contant');
 const filter = document.querySelector('.filter');
 const ageInput = document.querySelector('.filter__age-input');
+const users = document.querySelector('.users');
+const err = document.querySelector('.error');
 
 document.addEventListener('click', showFilter);
 
@@ -14,7 +17,7 @@ function showFilter() {
 	}
 }
 
-async function searchUsers() {
+export async function searchUsers() {
 	try {
 		users.remove();
 		err.innerHTML = '';

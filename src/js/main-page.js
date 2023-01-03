@@ -1,9 +1,9 @@
 'use strict';
 
+import { searchUsers } from './filter.js';
 
-
+const filter = document.querySelector('.filter');
 const users = document.querySelector('.users');
-const filterUsersContainer = document.querySelector('.users-filter-contant');
 const usersOnLoad = document.getElementsByClassName('users__link');
 const searchBtn = document.querySelector('.search-btn');
 const spinner = document.querySelector('.lds-default');

@@ -63,7 +63,7 @@ async function addPosts(start) {
 				'beforeend',
 				`<a class="posts__link"
 					target="_blank"
-					href="./comments.html?postId=${id}">
+					href="./comments-page.html?postId=${id}">
 						<div class="posts__item">
 							<img id='${id}' class="posts__photo" src="${photo}" alt="">
 							<h3 class="posts__title">${title}</h3>
