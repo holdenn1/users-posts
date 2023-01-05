@@ -43,7 +43,7 @@ export async function searchUsers() {
 				'beforeend',
 				`<a class="users__link"
 					target="_blank"
-					href="./pages/user-page.html?id=${id}">
+					href="./pages/page.html?id=${id}">
 					<div id=${id} class="users__item">
 						<div class="users__header">
 							<img

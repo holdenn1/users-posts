@@ -37,7 +37,7 @@ async function addUsers(start) {
 			'beforeend',
 			`<a class="users__link"
 				target="_blank"
-				href="./pages/user-page.html?id=${id}">
+				href="./page.html?id=${id}">
 				<div id=${id} class="users__item">
 					<div class="users__header">
 						<img

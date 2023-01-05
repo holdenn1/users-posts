@@ -1,5 +1,5 @@
 'use strict';
-
+import './../css/index.css'
 const userPageHeader = document.querySelector('.peage__header');
 const postsLoadingBtn = document.querySelector('#load-posts');
 const postsOnLoad = document.getElementsByClassName('posts__link');
@@ -43,11 +43,11 @@ async function loadUserTitle() {
 						</div>
 						<div class="pege__main">`,
 		);
-	} catch (error){
+	} catch (error) {
 		console.error(error);
 		err.style.display = 'flex';
 		err.insertAdjacentHTML('afterbegin', `<h4 class="error-text">Error: User not found</h4>`);
-	} 
+	}
 }
 
 async function addPosts(start) {
@@ -63,7 +63,7 @@ async function addPosts(start) {
 				'beforeend',
 				`<a class="posts__link"
 					target="_blank"
-					href="./comments-page.html?postId=${id}">
+					href="./comments.html?postId=${id}">
 						<div class="posts__item">
 							<img id='${id}' class="posts__photo" src="${photo}" alt="">
 							<h3 class="posts__title">${title}</h3>

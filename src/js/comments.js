@@ -1,5 +1,5 @@
 'use strict';
-
+import './../css/index.css'
 const commentHeader = document.querySelector('.comments-header');
 const commentMain = document.querySelector('.comments-main');
 const commentOnLoad = document.getElementsByClassName('comment');
